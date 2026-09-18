@@ -242,6 +242,7 @@
     }
     .card[data-category="spot"]::before { background: var(--accent-cyan); }
     .card[data-category="food"]::before { background: var(--accent-gold); }
+    .card[data-category="cafe"]::before { background: #e0a96d; }
     .card[data-category="transport"]::before { background: #3a86ff; }
     .card[data-category="concert"]::before { background: var(--primary); }
 
@@ -261,6 +262,7 @@
     }
     .card[data-category="spot"] .card-type-tag { background: rgba(5, 217, 232, 0.15); color: var(--accent-cyan); }
     .card[data-category="food"] .card-type-tag { background: rgba(255, 184, 0, 0.15); color: var(--accent-gold); }
+    .card[data-category="cafe"] .card-type-tag { background: rgba(224, 169, 109, 0.18); color: #e0a96d; }
     .card[data-category="transport"] .card-type-tag { background: rgba(58, 134, 255, 0.15); color: #3a86ff; }
     .card[data-category="concert"] .card-type-tag { background: rgba(255, 42, 109, 0.2); color: var(--primary); }
 
@@ -305,6 +307,7 @@
     .hl-menu { background: rgba(255, 159, 28, 0.15); color: #ff9f1c; border: 1px solid rgba(255, 159, 28, 0.3); }
     .hl-gift { background: rgba(0, 245, 212, 0.15); color: var(--accent-green); border: 1px solid rgba(0, 245, 212, 0.3); }
     .hl-tip  { background: rgba(157, 78, 221, 0.15); color: #c77dff; border: 1px solid rgba(157, 78, 221, 0.3); }
+    .hl-cafe { background: rgba(224, 169, 109, 0.15); color: #e0a96d; border: 1px solid rgba(224, 169, 109, 0.3); }
 
     /* Map Navigation Button */
     .nav-btn {
@@ -573,14 +576,14 @@
 
   <!-- VIEW 1: ITINERARY -->
   <main id="view-itinerary" class="view-content active">
-    <!-- Day Navigation (已校正：三、四、五、六、日) -->
+    <!-- Day Navigation -->
     <div class="day-slider">
       <div class="day-btn active" onclick="switchDay('d1', this)">
         <span>DAY 1</span>
         <span class="d-date">11/04 (三)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d2', this)">
-        <span>DAY 2</span>
+        <span>DAY 2 🔥</span>
         <span class="d-date">11/05 (四)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d3', this)">
@@ -602,21 +605,24 @@
       <div class="filter-chip active" onclick="filterCategory('all', this)">
         <i class="fa-solid fa-layer-group"></i> 全部項目
       </div>
-      <div class="filter-chip" onclick="filterCategory('spot', this)">
-        <i class="fa-solid fa-mountain-sun" style="color: var(--accent-cyan);"></i> 景點住宿
+      <div class="filter-chip" onclick="filterCategory('cafe', this)">
+        <i class="fa-solid fa-mug-hot" style="color: #e0a96d;"></i> 咖啡廳
       </div>
       <div class="filter-chip" onclick="filterCategory('food', this)">
-        <i class="fa-solid fa-utensils" style="color: var(--accent-gold);"></i> 美食餐廳
+        <i class="fa-solid fa-utensils" style="color: var(--accent-gold);"></i> 餐廳宵夜
       </div>
-      <div class="filter-chip" onclick="filterCategory('transport', this)">
-        <i class="fa-solid fa-plane-arrival" style="color: #3a86ff;"></i> 交通出行
+      <div class="filter-chip" onclick="filterCategory('spot', this)">
+        <i class="fa-solid fa-mountain-sun" style="color: var(--accent-cyan);"></i> 景點放鬆
       </div>
       <div class="filter-chip" onclick="filterCategory('concert', this)">
         <i class="fa-solid fa-music" style="color: var(--primary);"></i> 演唱會
       </div>
+      <div class="filter-chip" onclick="filterCategory('transport', this)">
+        <i class="fa-solid fa-plane-arrival" style="color: #3a86ff;"></i> 交通
+      </div>
     </div>
 
-    <!-- Day 1 Container: 11/04 (三) -->
+    <!-- DAY 1: 11/04 (三) -->
     <div id="day-d1" class="day-container">
       <div class="weather-card">
         <div class="w-left">
@@ -626,7 +632,7 @@
             <div class="w-desc">午後局部雷陣雨 • 濕度 80%</div>
           </div>
         </div>
-        <div class="w-badge"><i class="fa-solid fa-umbrella"></i> 隨身帶折傘</div>
+        <div class="w-badge"><i class="fa-solid fa-umbrella"></i> 隨身攜帶折傘</div>
       </div>
 
       <!-- Card: Flight Rogen -->
@@ -636,10 +642,10 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 12:20 到達</span>
         </div>
         <div class="card-title">Rogen 抵達吉隆坡機場 (KUL T1)</div>
-        <div class="card-story">搭乘深圳航空 ZH327 降落。出關後先辦理 eSIM 或叫 Grab。前往吉隆坡唐人街 Moxy 飯店辦理入住手續。</div>
+        <div class="card-story">搭乘深圳航空 ZH327 降落。出關領行李、確認行動網路。叫 Grab 直奔唐人街 Moxy 飯店放行李。</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-ticket"></i> 深航 ZH327 (08:15-12:20)</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-car"></i> 機場叫 Grab 到飯店約 65~75 MYR</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 深航 ZH327 (08:15-12:20)</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-car"></i> Grab 車資約 65~75 MYR</span>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Kuala+Lumpur+International+Airport" target="_blank" class="nav-btn">
           <i class="fa-solid fa-location-arrow"></i> 導航至 吉隆坡國際機場
@@ -649,17 +655,34 @@
       <!-- Card: Hotel Check-in -->
       <div class="card" data-category="spot">
         <div class="card-meta">
-          <span class="card-type-tag">飯店住宿</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 14:30 辦理</span>
+          <span class="card-type-tag">住宿入住</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 14:30</span>
         </div>
         <div class="card-title">Moxy Kuala Lumpur Chinatown 入住</div>
-        <div class="card-story">萬豪旗下年輕潮牌飯店，鄰近茨廠街，頂樓有無邊際高空泳池及城市夜景調酒吧。</div>
+        <div class="card-story">萬豪旗下潮流風格飯店，位處唐人街黃金地段。酒吧櫃檯辦理 Check-in 會招待迎賓調酒特飲！</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-key"></i> 預約: 3晚 (Nov 4-7)</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-martini-glass"></i> Check-in 贈迎賓調酒特飲</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-martini-glass"></i> 頂樓有無邊際泳池與高空露天酒吧</span>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Moxy+Kuala+Lumpur+Chinatown" target="_blank" class="nav-btn">
           <i class="fa-solid fa-location-arrow"></i> 導航至 Moxy Chinatown
+        </a>
+      </div>
+
+      <!-- Card: Cafe Afternoon -->
+      <div class="card" data-category="cafe">
+        <div class="card-meta">
+          <span class="card-type-tag">文青手沖</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 15:30 下午茶</span>
+        </div>
+        <div class="card-title">VCR 傳奇老宅咖啡館 (Jalan Galloway)</div>
+        <div class="card-story">吉隆坡精品咖啡界殿堂級代表！黑灰色調的復古老宅，自烘單品手沖層次分明，招牌軟殼蟹漢堡與可頌遠近馳名。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-cafe"><i class="fa-solid fa-mug-hot"></i> 必點咖啡: 衣索比亞手沖單品、Flat White</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-burger"></i> 必點美食: Soft Shell Crab Burger (軟殼蟹漢堡)</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=VCR+Galloway+Kuala+Lumpur" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 VCR Galloway
         </a>
       </div>
 
@@ -670,239 +693,317 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 21:35 到達</span>
         </div>
         <div class="card-title">Marina 抵達會合 (國泰 CX729)</div>
-        <div class="card-story">Marina 經香港轉機後降落。搭 Grab 或 KLIA Ekspres 機場快線前往市區 Moxy 飯店與 Rogen 碰頭。</div>
+        <div class="card-story">Marina 經香港轉機後降落。推薦搭 Grab 前往 Moxy 飯店與 Rogen 碰頭會合，整裝準備直奔宵夜！</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 國泰 CX317 轉 CX729 (21:35抵達)</span>
-          <span class="hl-badge hl-food"><i class="fa-solid fa-utensils"></i> 留好肚子準備直奔深夜夜市</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 國泰 CX317 接 CX729 (21:35抵達)</span>
+          <span class="hl-badge hl-food"><i class="fa-solid fa-utensils"></i> 深夜大排檔宵夜已備妥</span>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Moxy+Kuala+Lumpur+Chinatown" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 飯店會合點
+          <i class="fa-solid fa-location-arrow"></i> 導航至 Moxy 飯店會合
         </a>
       </div>
 
-      <!-- Card: Night Market -->
+      <!-- Card: Night Food -->
       <div class="card" data-category="food">
         <div class="card-meta">
-          <span class="card-type-tag">宵夜美食</span>
+          <span class="card-type-tag">大排檔宵夜</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 23:00 宵夜</span>
         </div>
-        <div class="card-title">亞羅街夜市 (Jalan Alor) 狂歡第一餐</div>
-        <div class="card-story">吉隆坡最火紅的大排檔一條街！滿滿碳烤香氣，炭烤魔鬼魚和沙嗲串是無敵絕配。</div>
+        <div class="card-title">亞羅街夜市 (Jalan Alor) - 黃亞華小食店</div>
+        <div class="card-story">吉隆坡最火紅的大排檔！炭火燒烤陣陣撲鼻，雙人下飛機第一餐來盤香脆碳烤雞翅搭沙嗲，痛快過癮！</div>
         <div class="highlights">
-          <span class="hl-badge hl-food"><i class="fa-solid fa-fire"></i> 必吃美食: 黃亞華小食店炭烤雞翼</span>
-          <span class="hl-badge hl-menu"><i class="fa-solid fa-bowl-food"></i> 必點: 燒蒲椒(魔鬼魚)、甘香炒啦啦、沙嗲</span>
+          <span class="hl-badge hl-food"><i class="fa-solid fa-fire"></i> 必吃美食: 黃亞華招牌炭烤雞翼 (外焦裡嫩)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-fish"></i> 必點菜單: 燒蒲椒(碳烤魔鬼魚)、黑椒甘香炒啦啦</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Jalan+Alor+Food+Street+Kuala+Lumpur" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 亞羅街美食街
+        <a href="https://www.google.com/maps/search/?api=1&query=Wong+Ah+Wah+Chicken+Wings+Jalan+Alor" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 黃亞華小食店
         </a>
       </div>
 
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 2 Container: 11/05 (四) -->
+    <!-- DAY 2: 11/05 (四) (CONCERT DAY) -->
     <div id="day-d2" class="day-container" style="display: none;">
-      <div class="weather-card">
-        <div class="w-left">
-          <i class="fa-solid fa-sun w-icon" style="color: #ffb800;"></i>
-          <div>
-            <div class="w-temp">33°C / 26°C</div>
-            <div class="w-desc">晴時多雲 • 戶外紫外線強</div>
-          </div>
-        </div>
-        <div class="w-badge"><i class="fa-solid fa-sun"></i> 注意防曬補水</div>
-      </div>
-
-      <div class="card" data-category="food">
-        <div class="card-meta">
-          <span class="card-type-tag">南洋早餐</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 09:00</span>
-        </div>
-        <div class="card-title">源昌隆茶餐室 (Kafei Dian)</div>
-        <div class="card-story">前身為百年古老郵局改建的文青南洋茶室，濃郁的牛油烤吐司沾半熟蛋是吉隆坡最正宗吃法。</div>
-        <div class="highlights">
-          <span class="hl-badge hl-food"><i class="fa-solid fa-mug-hot"></i> 必吃: 傳統海南咖啡 (Kopi C)</span>
-          <span class="hl-badge hl-menu"><i class="fa-solid fa-bread-slice"></i> 必點: 經典咖椰牛油吐司、生熟蛋</span>
-        </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Kafei+Dian+Jalan+Panggung" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 源昌隆茶室
-        </a>
-      </div>
-
-      <div class="card" data-category="spot">
-        <div class="card-meta">
-          <span class="card-type-tag">文化名勝</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 10:30</span>
-        </div>
-        <div class="card-title">黑風洞 (Batu Caves) 272彩虹天梯</div>
-        <div class="card-story">巨大的金色室建陀神像守護著巨大的石灰岩溶洞，登上272級彩虹階梯可以俯瞰吉隆坡壯麗全景。</div>
-        <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-shirt"></i> 服裝限制: 下半身需過膝(不可短褲)</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-triangle-exclamation"></i> 路上猴子極多，勿手提塑膠袋</span>
-        </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Batu+Caves+Selangor" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 黑風洞
-        </a>
-      </div>
-
-      <div class="card" data-category="food">
-        <div class="card-meta">
-          <span class="card-type-tag">米其林必比登</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 13:00 午餐</span>
-        </div>
-        <div class="card-title">新峰肉骨茶 (Sun Hong Muk Koot Tea)</div>
-        <div class="card-story">馬來西亞代表性傳統藥膳排骨，深褐色的當歸香濃湯頭配上炸油條泡著吃，暖胃又補充體力。</div>
-        <div class="highlights">
-          <span class="hl-badge hl-food"><i class="fa-solid fa-bowl-food"></i> 必吃美食: 濃郁瓦煲排骨肉骨茶</span>
-          <span class="hl-badge hl-menu"><i class="fa-solid fa-spoon"></i> 必點: 乾肉骨茶(魷魚香炒)、油鬼子(油條)</span>
-        </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Sun+Hong+Muk+Koot+Tea+Imbi" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 新峰肉骨茶
-        </a>
-      </div>
-
-      <div class="card" data-category="spot">
-        <div class="card-meta">
-          <span class="card-type-tag">地標購物</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 16:00</span>
-        </div>
-        <div class="card-title">TRX 敦拉薩國際貿易中心 & 雙子塔景觀</div>
-        <div class="card-story">吉隆坡全新頂級商場The Exchange TRX，傍晚前往雙子塔 (KLCC) 公園欣賞亮燈夜景。</div>
-        <div class="highlights">
-          <span class="hl-badge hl-gift"><i class="fa-solid fa-bag-shopping"></i> 伴手禮: Beryl's 頂級黑巧克力</span>
-          <span class="hl-badge hl-gift"><i class="fa-solid fa-cookie-bite"></i> 必買: 怡保白咖啡袋裝、香餅</span>
-        </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=The+Exchange+TRX+Kuala+Lumpur" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 The Exchange TRX
-        </a>
-      </div>
-
-      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
-    </div>
-
-    <!-- Day 3 Container: 11/06 (五) (Concert Day) -->
-    <div id="day-d3" class="day-container" style="display: none;">
       <div class="weather-card" style="border-color: rgba(255, 42, 109, 0.4);">
         <div class="w-left">
           <i class="fa-solid fa-bolt w-icon" style="color: var(--primary);"></i>
           <div>
-            <div class="w-temp">31°C / 25°C</div>
-            <div class="w-desc">體育場悶熱 • 傍晚偶陣雨</div>
+            <div class="w-temp">32°C / 26°C</div>
+            <div class="w-desc">體育場熱力四射 • 晚間體感悶熱</div>
           </div>
         </div>
         <div class="w-badge" style="background: rgba(255,42,109,0.2); color: var(--primary);">
-          <i class="fa-solid fa-compact-disc"></i> 演唱會日！
+          <i class="fa-solid fa-compact-disc"></i> 演唱會當日！
         </div>
       </div>
 
+      <!-- Breakfast Cafe -->
+      <div class="card" data-category="cafe">
+        <div class="card-meta">
+          <span class="card-type-tag">百年南洋早餐</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 09:30 早午餐</span>
+        </div>
+        <div class="card-title">源昌隆茶餐室 (Kafei Dian 咖啡店)</div>
+        <div class="card-story">由百年古老郵局改裝而成的復古茶餐室。木質窗櫺與舊招牌，充滿吉隆坡老街情懷，碳烤牛油咖椰吐司配生熟蛋是晨間靈魂。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-cafe"><i class="fa-solid fa-mug-hot"></i> 必點飲品: 傳統海南咖啡 (Kopi C)、冰美祿</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-bread-slice"></i> 必吃早餐: 咖椰牛油烤吐司、生熟土雞蛋沾黑醬油</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kafei+Dian+Jalan+Panggung" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 源昌隆茶餐室
+        </a>
+      </div>
+
+      <!-- Spot Photo -->
       <div class="card" data-category="spot">
         <div class="card-meta">
-          <span class="card-type-tag">文青漫步</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 11:30</span>
+          <span class="card-type-tag">街區探索</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 11:00 漫步</span>
         </div>
-        <div class="card-title">鬼仔巷 (Kwai Chai Hong) & 茨廠街探店</div>
-        <div class="card-story">就在飯店旁！保留了1960年代華人淘金歲月的復古壁畫巷，拍照氛圍極佳。隨後漫步茨廠街品嚐百年老字號。</div>
+        <div class="card-title">鬼仔巷 (Kwai Chai Hong) & 茨廠街壁畫</div>
+        <div class="card-story">緊鄰源昌隆！重現1960年代華人移民日常生活壁畫與復古紅磚拱橋，IG打卡絕佳景點，隨處都有復古老物件展現歷史韻味。</div>
         <div class="highlights">
-          <span class="hl-badge hl-food"><i class="fa-solid fa-utensils"></i> 必吃: 金蓮記炭炒福建麵 (濃郁豬油渣)</span>
-          <span class="hl-badge hl-menu"><i class="fa-solid fa-mug-saucer"></i> 必點: 羅漢果龍眼冰糖燉冬瓜涼茶</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-camera"></i> 最佳打卡位: 穿過紅木門的小巷弄與拉二胡壁畫</span>
+          <span class="hl-badge hl-food"><i class="fa-solid fa-bowl-food"></i> 順路小吃: 義欽豆腐花、羅漢果龍眼冰糖燉冬瓜涼茶</span>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Kwai+Chai+Hong+Petaling+Street" target="_blank" class="nav-btn">
           <i class="fa-solid fa-location-arrow"></i> 導航至 鬼仔巷
         </a>
       </div>
 
-      <!-- MAIN EVENT: CONCERT -->
-      <div class="card" data-category="concert">
+      <!-- Pre-concert Energizing Lunch -->
+      <div class="card" data-category="food">
         <div class="card-meta">
-          <span class="card-type-tag">重頭戲 • 演唱會</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 17:00 出發入場</span>
+          <span class="card-type-tag">米其林藥膳午餐</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 13:30 午餐</span>
         </div>
-        <div class="card-title">The Weeknd 吉隆坡演唱會 🔥</div>
-        <div class="card-story">武吉加里爾國家體育場 (National Stadium Bukit Jalil)。建議提前入場挑選周邊，感受萬人齊唱 Blinding Lights 的震撼！</div>
+        <div class="card-title">新峰肉骨茶 (Sun Hong Muk Koot Tea)</div>
+        <div class="card-story">看演唱會需要超強體力！新峰肉骨茶飄香數十年，採用當歸、黨參等多味藥材細火熬煮，排骨軟嫩骨肉分離，還有少見的香辣乾肉骨茶。</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-ticket"></i> 門票與證件: 提早截圖或存 Apple Wallet</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-train-subway"></i> 交通秘笈: 強烈搭乘 LRT 到 Bukit Jalil 站</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-ban"></i> 散場千萬別叫 Grab(會大塞車)，搭 LRT 最順</span>
+          <span class="hl-badge hl-food"><i class="fa-solid fa-bowl-food"></i> 必吃美食: 濃郁瓦煲排骨肉骨茶 (湯頭無限免費續加)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-pepper-hot"></i> 必點菜單: 乾肉骨茶 (魷魚乾爆炒乾辣椒與五花肉)</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Bukit+Jalil+National+Stadium" target="_blank" class="nav-btn" style="background: linear-gradient(135deg, #ff2a6d, #9d4edd);">
-          <i class="fa-solid fa-route"></i> 導航至 國家體育場
+        <a href="https://www.google.com/maps/search/?api=1&query=Sun+Hong+Muk+Koot+Tea+Imbi" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 新峰肉骨茶
         </a>
       </div>
 
+      <!-- Pre-concert Cafe Prep -->
+      <div class="card" data-category="cafe">
+        <div class="card-meta">
+          <span class="card-type-tag">閣樓秘密基地</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 15:30 休憩</span>
+        </div>
+        <div class="card-title">Merchant's Lane 美真林 (大東昇)</div>
+        <div class="card-story">隱身茨廠街百年騎樓二樓的秘密花園，天井自然採光，融合殖民古董與現代綠意，出發去體育場前在這裡喝杯冰咖啡最愜意。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-cafe"><i class="fa-solid fa-coffee"></i> 必喝飲品: Rose Honey Latte (玫瑰蜂蜜拿鐵)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-cake-candles"></i> 必點甜品: 炸香蕉冰淇淋鬆餅、班蘭香茅磅蛋糕</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Merchants+Lane+Jalan+Petaling" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 Merchant's Lane
+        </a>
+      </div>
+
+      <!-- MAIN EVENT: THE WEEKND CONCERT -->
+      <div class="card" data-category="concert">
+        <div class="card-meta">
+          <span class="card-type-tag">主場重頭戲</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 17:30 入場 / 20:00 開唱</span>
+        </div>
+        <div class="card-title">The Weeknd 吉隆坡演唱會 🔥</div>
+        <div class="card-story">地點就在 **Stadium Nasional Bukit Jalil（國立體育場）**！數萬人狂歡合唱 Blinding Lights 與 Starboy，震撼舞美燈光！</div>
+        <div class="highlights">
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-train-subway"></i> 捷運指南: 搭 LRT 大城堡線(Sri Petaling Line) 直達 Bukit Jalil 站</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-ban"></i> 避塞車秘笈: 散場周邊叫 Grab 保證塞爆！請務必跟隨人潮搭乘 LRT 捷運</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-id-card"></i> 攜帶物品: 門票 QR-Code 預先截圖、護照照片備查</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=National+Stadium+Bukit+Jalil+Kuala+Lumpur" target="_blank" class="nav-btn" style="background: linear-gradient(135deg, #ff2a6d, #9d4edd);">
+          <i class="fa-solid fa-route"></i> 導航至 Stadium Nasional Bukit Jalil
+        </a>
+      </div>
+
+      <!-- Late Night Speakeasy Celebration -->
       <div class="card" data-category="food">
         <div class="card-meta">
-          <span class="card-type-tag">慶功調酒</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 23:30 散場後</span>
+          <span class="card-type-tag">散場慶功調酒</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 23:30 微醺</span>
         </div>
         <div class="card-title">PS150 隱密復古中藥行酒吧 (Speakeasy)</div>
-        <div class="card-story">隱身在一家看似荒廢老文具中藥行後方的亞洲50大傳奇酒吧，穿過木門後別有洞天，氣氛醉人。</div>
+        <div class="card-story">散場搭捷運回到唐人街！外表看似荒廢復古的中藥鋪玩具店，推開暗門後是亞洲 50 大傳奇酒吧，氛圍感拉滿。</div>
         <div class="highlights">
-          <span class="hl-badge hl-menu"><i class="fa-solid fa-glass-martini-alt"></i> 必點招牌: 斑蘭葉香氣特調 (Pandan Cocktail)</span>
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-bell"></i> 散場慶功微醺最佳去處 (建議先預約)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-martini-glass-citrus"></i> 必點特調: Salty Chinaman (南洋柑橘鹹梅乾)、Pandan Sling</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-sparkles"></i> 慶祝散場最佳歸屬，微醺散步 3 分鐘即回 Moxy</span>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=PS150+Petaling+Street" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 PS150 酒吧
+          <i class="fa-solid fa-location-arrow"></i> 導航至 PS150 Speakeasy
         </a>
       </div>
 
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 4 Container: 11/07 (六) -->
+    <!-- DAY 3: 11/06 (五) -->
+    <div id="day-d3" class="day-container" style="display: none;">
+      <div class="weather-card">
+        <div class="w-left">
+          <i class="fa-solid fa-sun w-icon" style="color: #ffb800;"></i>
+          <div>
+            <div class="w-temp">33°C / 26°C</div>
+            <div class="w-desc">晴朗晴朗 • 紫外線強烈</div>
+          </div>
+        </div>
+        <div class="w-badge"><i class="fa-solid fa-sun"></i> 墨鏡防曬不可少</div>
+      </div>
+
+      <!-- Brunch Cafe -->
+      <div class="card" data-category="cafe">
+        <div class="card-meta">
+          <span class="card-type-tag">澳式冠軍烘焙</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 10:30 早午餐</span>
+        </div>
+        <div class="card-title">Feeka Coffee Roasters (武吉免登)</div>
+        <div class="card-story">被評為吉隆坡最頂尖的烘豆咖啡館之一，店名源自瑞典語「Fika」（享受咖啡與休憩時光）。被林蔭綠植環繞，戶外露天座位極度放鬆。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-cafe"><i class="fa-solid fa-mug-hot"></i> 必點咖啡: Cold Brew 氮氣冷萃、自烘耶加雪菲手沖</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-egg"></i> 必點美食: Feeka's Omelette 招牌蛋捲、Ricotta 鬆餅</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Feeka+Coffee+Roasters+Jalan+Mesui" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 Feeka Coffee
+        </a>
+      </div>
+
+      <!-- Spot: Batu Caves -->
+      <div class="card" data-category="spot">
+        <div class="card-meta">
+          <span class="card-type-tag">壯觀名勝</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 12:30 探索</span>
+        </div>
+        <div class="card-title">黑風洞 (Batu Caves) 272彩虹天梯</div>
+        <div class="card-story">巨大的金黃色室建陀神像高聳入雲，攀登272階色彩繽紛的彩虹天梯進入天然石灰岩洞穴，內部神廟莊嚴雄偉。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-shirt"></i> 服裝須知: 裙褲必須長過膝蓋 (現場可租沙龍)</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-triangle-exclamation"></i> 野生猴子極靈活，切勿手提塑膠袋或食物</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Batu+Caves+Gombak+Selangor" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 黑風洞
+        </a>
+      </div>
+
+      <!-- Dinner Restaurant -->
+      <div class="card" data-category="food">
+        <div class="card-meta">
+          <span class="card-type-tag">大馬國寶美食</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 16:30 晚餐</span>
+        </div>
+        <div class="card-title">Madam Kwan's 關媽媽 (Pavilion 旗艦店)</div>
+        <div class="card-story">來到吉隆坡絕不可錯過最正宗的星馬國菜料理！乾淨舒適的商場用餐環境，每一道都承載半世紀傳統風味。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-food"><i class="fa-solid fa-plate-wheat"></i> 必吃名菜: Nasi Lemak (大馬最好吃三色椰漿飯)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-bowl-rice"></i> 必點菜單: 招牌炒粿條、沙爹肉串佐花生醬、三色奶茶</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Madam+Kwan+Pavilion+Kuala+Lumpur" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 Madam Kwan's Pavilion
+        </a>
+      </div>
+
+      <!-- Spot: Modern Landmark -->
+      <div class="card" data-category="spot">
+        <div class="card-meta">
+          <span class="card-type-tag">地標天際線</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 19:30 夜景</span>
+        </div>
+        <div class="card-title">The Exchange TRX & 雙子塔夜景 (KLCC)</div>
+        <div class="card-story">吉隆坡全新落成的世界級高端商場與空中空中公園花園，隨後散步前往雙子塔 KLCC 觀賞噴泉水舞與璀璨燈光。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-gift"><i class="fa-solid fa-bag-shopping"></i> 必買伴手禮: Beryl's 提拉米蘇巧克力、怡保白咖啡</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-camera"></i> 最佳機位: 雙子塔外公園中央步道仰拍</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Petronas+Twin+Towers+KLCC" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 雙子塔公園
+        </a>
+      </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
+    </div>
+
+    <!-- DAY 4: 11/07 (六) -->
     <div id="day-d4" class="day-container" style="display: none;">
       <div class="weather-card">
         <div class="w-left">
           <i class="fa-solid fa-cloud-sun w-icon" style="color: var(--accent-cyan);"></i>
           <div>
             <div class="w-temp">32°C / 25°C</div>
-            <div class="w-desc">上午舒適午後多雲 • 適合室內逛街</div>
+            <div class="w-desc">上午微風下午多雲 • 採買最舒適</div>
           </div>
         </div>
-        <div class="w-badge"><i class="fa-solid fa-bag-shopping"></i> 瘋狂採購日</div>
+        <div class="w-badge"><i class="fa-solid fa-basket-shopping"></i> 伴手禮瘋狂採買</div>
       </div>
 
+      <!-- Morning Beef Noodle Legend -->
+      <div class="card" data-category="food">
+        <div class="card-meta">
+          <span class="card-type-tag">70年老字號</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 09:30 早餐</span>
+        </div>
+        <div class="card-title">麗豐茶餐廳 (Lai Foong Restaurant)</div>
+        <div class="card-story">自 1956 年創立至今的老字號茶餐廳，招牌牛肉麵湯頭以牛骨及秘製香料熬煮數小時，清甜濃郁，牛腩與牛丸口感絕頂。</div>
+        <div class="highlights">
+          <span class="hl-badge hl-food"><i class="fa-solid fa-bowl-food"></i> 必吃美食: 麗豐招牌牛腩牛雜麵 (可選干撈或湯麵)</span>
+          <span class="hl-badge hl-menu"><i class="fa-solid fa-mug-saucer"></i> 必點飲品: 海南茶 (Kopi Cham 茶咖融合)</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kedai+Kopi+Lai+Foong+Jalan+Tun+H+S+Lee" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 麗豐茶餐廳
+        </a>
+      </div>
+
+      <!-- Spot: Merdeka Square -->
       <div class="card" data-category="spot">
         <div class="card-meta">
-          <span class="card-type-tag">文化巡禮</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 10:30</span>
+          <span class="card-type-tag">歷史地標</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 11:00 漫步</span>
         </div>
-        <div class="card-title">獨立廣場 (Merdeka Square) & 蘇丹阿都沙末大廈</div>
-        <div class="card-story">見證馬來西亞歷史誕生的地標，融合摩爾式與英國殖民風格的古典鐘樓，拍照極具異國氛圍。</div>
+        <div class="card-title">獨立廣場 (Merdeka Square) & 蘇丹阿都沙末樓</div>
+        <div class="card-story">大馬歷史核心！矗立百米旗桿與古典英殖民摩爾式紅磚鐘樓，陽光灑在大草坪上極為壯觀，拍照氛圍滿分。</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-camera"></i> 最佳機位: 站在大草坪前仰拍鐘樓全景</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-camera"></i> 必拍機位: 站在綠茵草坪前將鐘樓全景收入畫面</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Merdeka+Square+Kuala+Lumpur" target="_blank" class="nav-btn">
+        <a href="https://www.google.com/maps/search/?api=1&query=Dataran+Merdeka+Kuala+Lumpur" target="_blank" class="nav-btn">
           <i class="fa-solid fa-location-arrow"></i> 導航至 獨立廣場
         </a>
       </div>
 
+      <!-- Cultural Shopping & Souvenir -->
       <div class="card" data-category="spot">
         <div class="card-meta">
-          <span class="card-type-tag">伴手禮採買</span>
-          <span class="card-time"><i class="fa-regular fa-clock"></i> 14:00</span>
+          <span class="card-type-tag">工藝市集</span>
+          <span class="card-time"><i class="fa-regular fa-clock"></i> 14:00 伴手禮</span>
         </div>
-        <div class="card-title">中央藝術坊 (Central Market) & 柏威年商場 (Pavilion)</div>
-        <div class="card-story">在 Central Market 挖寶傳統手工蠟染巴迪(Batik)，接著轉移到 Pavilion 採購馬來西亞必買精品與本土國民鞋小 CK。</div>
+        <div class="card-title">中央藝術坊 (Central Market Pasar Seni)</div>
+        <div class="card-story">冷氣開放的二層樓百年工藝市集！從手作蠟染巴迪布 (Batik)、錫器、木雕，到大馬必買特產一應俱全。</div>
         <div class="highlights">
-          <span class="hl-badge hl-gift"><i class="fa-solid fa-basket-shopping"></i> 必買伴手禮: 白咖哩泡麵、美祿原味威化餅</span>
-          <span class="hl-badge hl-gift"><i class="fa-solid fa-shoe-prints"></i> 購物: 小CK鞋包在吉隆坡買最划算</span>
+          <span class="hl-badge hl-gift"><i class="fa-solid fa-bag-shopping"></i> 必買伴手禮: 檳城白咖哩泡麵、美祿原味威化餅、榴槤凍乾</span>
+          <span class="hl-badge hl-gift"><i class="fa-solid fa-shirt"></i> 手工藝品: 南洋風情巴迪印花襯衫</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Pavilion+Kuala+Lumpur" target="_blank" class="nav-btn">
-          <i class="fa-solid fa-location-arrow"></i> 導航至 Pavilion 商場
+        <a href="https://www.google.com/maps/search/?api=1&query=Central+Market+Kuala+Lumpur" target="_blank" class="nav-btn">
+          <i class="fa-solid fa-location-arrow"></i> 導航至 中央藝術坊
         </a>
       </div>
 
+      <!-- Departure Prep & Chill -->
       <div class="card" data-category="transport">
         <div class="card-meta">
-          <span class="card-type-tag">退房與放鬆</span>
+          <span class="card-type-tag">退房與機場接駁</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 20:00 - 23:30</span>
         </div>
-        <div class="card-title">Moxy 泳池放鬆 & 前往機場</div>
-        <div class="card-story">回飯店整理滿滿行李戰利品。因為是8號(週日)凌晨兩三點的航班，建議週六晚上23:30提早抵達吉隆坡機場辦理登機出境手續。</div>
+        <div class="card-title">Moxy 泳池放鬆 & 出發吉隆坡機場</div>
+        <div class="card-story">回飯店整理戰利品行囊。由於是 11/08 (日) 凌晨 02:55 與 03:05 的返程航班，建議晚上 23:30 提早搭 Grab 抵達 KLIA 機場辦理托運與出境。</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-clock"></i> 建議提前 3.5 小時抵達機場</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-clock"></i> 國際航線建議提前 3.5 小時到達機場</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-car"></i> 夜間叫車 Grab 約 50 分鐘到達 KLIA</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=KLIA+Terminal+1" target="_blank" class="nav-btn">
+        <a href="https://www.google.com/maps/search/?api=1&query=Kuala+Lumpur+International+Airport+Terminal+1" target="_blank" class="nav-btn">
           <i class="fa-solid fa-location-arrow"></i> 導航至 KLIA 第一航廈
         </a>
       </div>
@@ -910,40 +1011,40 @@
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 5 Container: 11/08 (日) (Departure) -->
+    <!-- DAY 5: 11/08 (日) (DEPARTURE) -->
     <div id="day-d5" class="day-container" style="display: none;">
       <div class="weather-card">
         <div class="w-left">
           <i class="fa-solid fa-plane-departure w-icon" style="color: var(--accent-cyan);"></i>
           <div>
             <div class="w-temp">平安返程</div>
-            <div class="w-desc">11/08 (日) 凌晨依依不捨告別大馬</div>
+            <div class="w-desc">11/08 (日) 凌晨滿載美好回憶起飛</div>
           </div>
         </div>
-        <div class="w-badge"><i class="fa-solid fa-heart"></i> 回憶滿載</div>
+        <div class="w-badge"><i class="fa-solid fa-heart"></i> 旅途圓滿！</div>
       </div>
 
       <div class="card" data-category="transport">
         <div class="card-meta">
-          <span class="card-type-tag">返程航班</span>
+          <span class="card-type-tag">Marina 返程</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 02:55 起飛</span>
         </div>
-        <div class="card-title">Marina 返程: 國泰航空 CX732</div>
+        <div class="card-title">Marina: 國泰航空 CX732 (轉機香港)</div>
         <div class="card-story">CX732 於 02:55 由吉隆坡起飛，07:00 抵達香港轉機；續接 CX368 於 09:45 起飛，12:30 順利返抵上海浦東。</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 航程: KUL ➔ HKG ➔ PVG</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 航線: KUL ➔ HKG ➔ PVG</span>
         </div>
       </div>
 
       <div class="card" data-category="transport">
         <div class="card-meta">
-          <span class="card-type-tag">返程航班</span>
+          <span class="card-type-tag">Rogen 返程</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 03:05 起飛</span>
         </div>
-        <div class="card-title">Rogen 返程: 深圳航空 ZH334</div>
-        <div class="card-story">ZH334 於 03:05 由吉隆坡直飛，07:20 順利抵達深圳寶安機場。完美劃下 The Weeknd 演唱會旅途句點！</div>
+        <div class="card-title">Rogen: 深圳航空 ZH334 (直飛深圳)</div>
+        <div class="card-story">ZH334 於 03:05 由吉隆坡直飛，07:20 順利抵達深圳寶安機場。完美結束這趟熱血音樂之旅！</div>
         <div class="highlights">
-          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 航程: KUL ➔ SZX 直飛順利回家</span>
+          <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 航線: KUL ➔ SZX 直飛回家</span>
         </div>
       </div>
 
@@ -956,19 +1057,19 @@
     <div class="section-title"><i class="fa-solid fa-hotel" style="color: var(--primary);"></i> 飯店住宿資訊</div>
     <div class="info-card">
       <div style="font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 4px;">Moxy Kuala Lumpur Chinatown</div>
-      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">萬豪旗下年輕潮牌 • 茨廠街正中心</div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">萬豪旗下潮流風格 • 唐人街/茨廠街正核心</div>
       <div style="display: flex; gap: 10px; margin-bottom: 12px;">
         <div style="flex:1; background: var(--card-inner); padding: 10px; border-radius: 10px; font-size: 12px;">
           <div style="color: var(--text-muted);">入住晚數</div>
           <div style="color: #fff; font-weight: 700; font-size: 14px; margin-top:2px;">3 晚 (Nov 4 - 7)</div>
         </div>
         <div style="flex:1; background: var(--card-inner); padding: 10px; border-radius: 10px; font-size: 12px;">
-          <div style="color: var(--text-muted);">設施亮點</div>
+          <div style="color: var(--text-muted);">飯店亮點</div>
           <div style="color: var(--accent-cyan); font-weight: 700; font-size: 14px; margin-top:2px;">高空酒吧 / 網美泳池</div>
         </div>
       </div>
       <a href="https://www.google.com/maps/search/?api=1&query=Moxy+Kuala+Lumpur+Chinatown" target="_blank" class="nav-btn">
-        <i class="fa-solid fa-diamond-turn-right"></i> Google Maps 導航前往飯店
+        <i class="fa-solid fa-diamond-turn-right"></i> Google Maps 導航前往 Moxy
       </a>
     </div>
 
@@ -984,7 +1085,7 @@
           <i class="fa-solid fa-arrow-right" style="color: var(--text-muted); font-size: 12px;"></i>
           <span>吉隆坡 (KUL)</span>
         </div>
-        <div class="flight-time">08:15 深圳寶安起飛 ➔ 12:20 降落吉隆坡</div>
+        <div class="flight-time">08:15 深圳寶安起飛 ➔ 12:20 降落吉隆坡 T1</div>
       </div>
 
       <div class="flight-pill" style="margin-top: 10px;">
@@ -1030,14 +1131,14 @@
           <i class="fa-solid fa-angle-right" style="color: var(--text-muted);"></i>
           <span>PVG 上海浦東</span>
         </div>
-        <div class="flight-time">02:55-07:00 抵達香港轉機 (09:45起飛) ➔ 12:30 抵達上海</div>
+        <div class="flight-time">02:55-07:00 抵達香港轉機 (09:45起飛) ➔ 12:30 抵達上海浦東</div>
       </div>
     </div>
   </section>
 
   <!-- VIEW 3: EXPENSE TRACKER -->
   <section id="view-expense" class="view-content">
-    <div class="section-title"><i class="fa-solid fa-calculator" style="color: var(--accent-green);"></i> 記帳與分攤試算 (LocalStorage)</div>
+    <div class="section-title"><i class="fa-solid fa-calculator" style="color: var(--accent-green);"></i> 雙人記帳與分攤試算 (LocalStorage)</div>
     
     <div class="budget-summary">
       <div class="bs-title">本次旅程總支出 (馬幣)</div>
@@ -1055,7 +1156,7 @@
     <!-- Expense Input -->
     <div class="expense-form">
       <div class="form-row">
-        <input type="text" id="exp-name" class="input-box" placeholder="消費項目 (例: 亞羅街烤雞翅)">
+        <input type="text" id="exp-name" class="input-box" placeholder="消費項目 (例: VCR手沖咖啡與可頌)">
         <input type="number" id="exp-amount" class="input-box" style="max-width: 110px;" placeholder="金額 (RM)">
       </div>
       <div class="form-row">
@@ -1104,7 +1205,7 @@
     <div class="info-card" style="font-size: 13px; line-height: 1.7; color: #cbd5e1;">
       <p>🔹 <strong>Grab叫車防坑</strong>：馬來西亞路邊招計程車可能漫天開價，推薦一律使用 Grab App，價格公開透明且不用現金交易。</p>
       <p style="margin-top: 8px;">🔹 <strong>插座規格</strong>：馬來西亞使用<strong>英規三腳厚扁插頭 (Type G)</strong>，電壓240V，記得帶萬國轉接頭。</p>
-      <p style="margin-top: 8px;">🔹 <strong>演唱會返程</strong>：千萬不要跟幾萬人在體育場外搶叫 Grab，先跟人群步行進 LRT Bukit Jalil 站搭捷運，回到市區再轉車或回飯店最快。</p>
+      <p style="margin-top: 8px;">🔹 <strong>演唱會散場必備</strong>：體育場外散場時幾萬人同時叫車會完全癱瘓，請跟隨指引步行至 **LRT Bukit Jalil 站** 搭乘大城堡線捷運回市區最快！</p>
     </div>
   </section>
 
@@ -1150,7 +1251,7 @@
       const targetDay = document.getElementById('day-' + dayKey);
       targetDay.style.display = 'block';
 
-      // 切換日期時重新套用分類過濾
+      // 切換天數時保留目前的分類篩選
       applyFilterToContainer(targetDay, currentCategory);
     }
 
@@ -1190,7 +1291,7 @@
     const defaultExpenses = [
       { id: 1, name: "黃亞華炭烤雞翅宵夜", amount: 120, payer: "Rogen" },
       { id: 2, name: "機場至飯店 Grab 車資", amount: 75, payer: "Marina" },
-      { id: 3, name: "新峰肉骨茶雙人份", amount: 95, payer: "Rogen" }
+      { id: 3, name: "VCR 手沖咖啡與早午餐", amount: 85, payer: "Rogen" }
     ];
 
     // Expense Logic (localStorage)
