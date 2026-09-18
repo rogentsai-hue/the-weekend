@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>KL 2026: Rogen & Marina x The Weeknd Tour</title>
+  <meta name="theme-color" content="#0d0e12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Rogen & Marina 吉隆坡演唱會與自由行專屬旅遊助手">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#e11d48',
+              accent: '#f43f5e',
+              neon: '#fb7185',
+              dark: '#0a0b0e',
+              card: '#13151b',
+              border: '#232733',
+              moxy: '#e91e63'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Phosphor Icons for modern mobile UI -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Embedded Web App Manifest for PWA installation -->
+  <link rel="manifest" href="data:application/manifest+json;utf-8,%7B%22name%22%3A%22KL%20Tour%202026%22%2C%22short_name%22%3A%22KL%20Tour%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a0b0e%22%2C%22theme_color%22%3A%22%23e11d48%22%7D">
+
+  <style>
+    body {
+      background-color: #090a0f;
+      color: #f1f5f9;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .pb-safe {
+      padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 16px));
+    }
+    .pt-safe {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .glow-weeknd {
+      box-shadow: 0 0 25px -5px rgba(225, 29, 72, 0.4);
+    }
+    .glassmorphism {
+      background: rgba(19, 21, 27, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-slate-100 min-h-screen bg-[#0a0b0f] flex justify-center">
+
+  <!-- Mobile Container Constraint (Responsive on desktop, looks like native app) -->
+  <div class="w-full max-w-md min-h-screen flex flex-col bg-[#0b0d13] shadow-2xl relative border-x border-slate-800/40">
+
+    <!-- Top Sticky Header -->
+    <header class="sticky top-0 z-40 glassmorphism px-4 py-3 border-b border-slate-800/60 pt-safe">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-brand-red to-amber-500 flex items-center justify-center shadow-lg shadow-brand-red/30">
+            <i class="ph-bold ph-vinyl-record text-white text-lg animate-spin" style="animation-duration: 8s;"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-neon">KL 2026 LIVE</span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+            <h1 class="text-sm font-black tracking-tight text-white">Rogen & Marina • The Weeknd</h1>
+          </div>
+        </div>
+
+        <button onclick="openDeployGuide()" class="px-2.5 py-1 text-xs rounded-full bg-slate-800/90 border border-slate-700 text-slate-300 hover:text-white flex items-center gap-1 active:scale-95 transition-all">
+          <i class="ph-fill ph-cloud-arrow-up text-brand-neon"></i>
+          <span>部署 PWA</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Content Area -->
+    <main class="flex-1 pb-safe overflow-y-auto">
+
+      <!-- ================= TAB 1: 行程 ITINERARY ================= -->
+      <section id="tab-itinerary" class="tab-pane active px-4 py-4 space-y-4">
+
+        <!-- Concert Feature Banner -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-rose-950/80 via-red-900/60 to-purple-950/80 p-4 border border-rose-500/30 glow-weeknd">
+          <div class="absolute -right-8 -bottom-8 opacity-20 pointer-events-none">
+            <i class="ph-fill ph-microphone-stage text-9xl text-rose-300"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-brand-red text-white shadow-md">
+                ⚡ Special Event
+              </span>
+              <span class="text-xs text-rose-200/90 font-mono">11/5 (Day 2) 20:30</span>
+            </div>
+            <h2 class="text-lg font-black text-white leading-tight">The Weeknd After Hours Tour</h2>
+            <p class="text-xs text-rose-200/80 mt-1 flex items-center gap-1">
+              <i class="ph-fill ph-map-pin"></i> Stadium Nasional Bukit Jalil, KL
+            </p>
+            <div class="mt-3 flex gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Stadium+Nasional+Bukit+Jalil" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white text-rose-900 hover:bg-slate-100 flex items-center gap-1 transition shadow">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航場館
+              </a>
+              <button onclick="switchTab('tab-guide')" class="text-xs font-medium px-3 py-1.5 rounded-xl bg-black/40 border border-white/20 text-white hover:bg-black/60 flex items-center gap-1 transition">
+                <i class="ph-bold ph-lightbulb"></i> 散場攻略
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day Selector Tabs -->
+        <div class="flex gap-2 overflow-x-auto pb-1 hide-scrollbar -mx-4 px-4">
+          <button onclick="filterDay('all')" class="day-chip active px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-red text-white transition-all shadow-md">
+            全部日程
+          </button>
+          <button onclick="filterDay('day1')" class="day-chip px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700 transition-all">
+            11/4 抵達·會合
+          </button>
+          <button onclick="filterDay('day2')" class="day-chip px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700 transition-all">
+            11/5 演唱會🔥
+          </button>
+          <button onclick="filterDay('day3')" class="day-chip px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700 transition-all">
+            11/6 地標·酒吧
+          </button>
+          <button onclick="filterDay('day4')" class="day-chip px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700 transition-all">
+            11/7-8 購物·返程
+          </button>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs hide-scrollbar text-slate-400">
+          <span class="text-[11px] font-semibold text-slate-500 mr-1 flex items-center gap-1">
+            <i class="ph-bold ph-funnel"></i>篩選:
+          </span>
+          <button onclick="filterCategory('all')" class="cat-chip active px-2.5 py-1 rounded-lg bg-slate-800 text-white font-medium">全部</button>
+          <button onclick="filterCategory('spot')" class="cat-chip px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:text-white">景點</button>
+          <button onclick="filterCategory('food')" class="cat-chip px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:text-white">美食</button>
+          <button onclick="filterCategory('trans')" class="cat-chip px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:text-white">交通</button>
+          <button onclick="filterCategory('event')" class="cat-chip px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:text-white">演唱會</button>
+        </div>
+
+        <!-- ================= DAY 1: 11/4 ================= -->
+        <div class="day-block space-y-3" data-day="day1">
+          <!-- Weather Bar for Day 1 -->
+          <div class="glassmorphism rounded-xl p-3 flex items-center justify-between border-l-4 border-amber-400">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-amber-400">DAY 1 • 11/04 (二)</span>
+                <span class="text-xs text-slate-300">吉隆坡市區 (晴轉午後陣雨)</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5">預報 27°C ~ 33°C • 濕度 82% • 出門隨身帶折傘，室內冷氣偏冷備薄外套</p>
+            </div>
+            <i class="ph-duotone ph-cloud-sun text-2xl text-amber-400"></i>
+          </div>
+
+          <!-- Card 1.1: Rogen 抵達與交通 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800 transition hover:border-slate-700" data-cat="trans">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-950 text-sky-400 border border-sky-800">交通 / 接駁</span>
+                <span class="text-xs font-mono text-slate-400">12:20 - 14:00</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">Rogen 先發</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center gap-1.5">
+                <i class="ph-bold ph-airplane-landing text-sky-400"></i>
+                Rogen 降落 KLIA (ZH327) 前往酒店
+              </h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                深圳航空 ZH327 (08:15 - 12:20) 抵達吉隆坡第一航廈 (KLIA T1)。出關領行李、買 Digi/Celcom 網卡或開啟漫遊。
+              </p>
+              <div class="mt-2 text-xs bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 space-y-1 text-slate-300">
+                <p><strong class="text-purple-300">💡 推薦交通：</strong>搭乘 <b>KLIA Ekspres 機場快線</b> 直達 KL Sentral（28分鐘，RM 55），再轉乘 MRT Kajang 線一站至 <b>Pasar Seni 站</b> 步行3分鐘即達 Moxy 酒店；或 2人以上直接叫 <b>Grab</b>（約 RM 65-80 + Toll）。</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">KLIA ➡️ Moxy Kuala Lumpur Chinatown</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Moxy+Kuala+Lumpur+Chinatown" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-sky-400 hover:bg-sky-950 hover:text-sky-300 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航 Moxy 酒店
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 1.2: 入住酒店與鬼仔巷周邊 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="spot">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-400 border border-amber-800">景點探索</span>
+                <span class="text-xs font-mono text-slate-400">14:30 - 18:00</span>
+              </div>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-brand-moxy/20 text-brand-moxy border border-brand-moxy/30 font-semibold">Chinatown</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">辦理 Check-in & 茨廠街·鬼仔巷文青漫步</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                入住超潮的 <b>Moxy Chinatown</b>，放下行李後到旁邊的百年騎樓與鬼仔巷散步打卡，體驗老華人街區與現代塗鴉藝術碰撞。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">必吃美食：何九海南茶店</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-rose-950/80 text-rose-300 border border-rose-800 font-medium">必點菜單：生熟蛋雪油烤麵包+海南茶</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950/80 text-purple-300 border border-purple-800 font-medium">景點故事：鬼仔巷壁畫還原1960年代南洋日常生活</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">景點：Kwai Chai Hong 鬼仔巷</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Kwai+Chai+Hong" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航鬼仔巷
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 1.3: Marina 抵達與夜市會合慶功 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="food">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">宵夜美食 / 會合</span>
+                <span class="text-xs font-mono text-slate-400">22:00 - 00:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-900/60 text-emerald-300">二人正式合體</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Marina 抵達 (CX729) & 亞羅街/茨廠街夜市宵夜</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                Marina 21:35 降落 KLIA T1，直接於機場搭乘 Grab 直奔 Moxy 會合（約45-55分）。放好行李直奔吉隆坡深夜鑊氣美食！
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">必吃美食：金蓮記炭炒福建麵 / 黃亞華小食店</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-rose-950/80 text-rose-300 border border-rose-800 font-medium">必點菜單：黑醬油炒福建麵(附豬油渣)、燒雞翼、沙嗲串烤</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Jalan Alor 亞羅街夜市</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Jalan+Alor+Food+Street+Kuala+Lumpur" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-emerald-400 hover:bg-emerald-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航亞羅街
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DAY 2: 11/5 ================= -->
+        <div class="day-block space-y-3" data-day="day2">
+          <!-- Weather Bar for Day 2 -->
+          <div class="glassmorphism rounded-xl p-3 flex items-center justify-between border-l-4 border-rose-500">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-rose-400">DAY 2 • 11/05 (三) CONCERT DAY!</span>
+                <span class="text-xs text-slate-300">多雲時晴 • 傍晚微雨</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5">預報 26°C ~ 32°C • 演唱會場館冷氣/通風強烈，備輕便雨衣與小風扇</p>
+            </div>
+            <i class="ph-duotone ph-sun-dim text-2xl text-rose-400"></i>
+          </div>
+
+          <!-- Card 2.1: 黑風洞彩虹階梯探秘 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="spot">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-400 border border-amber-800">打卡景點</span>
+                <span class="text-xs font-mono text-slate-400">09:00 - 12:00</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">早起避開日曬</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">黑風洞 Batu Caves 272階彩虹天梯</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                搭乘 Grab 或 KTM Komuter 前往壯觀石灰岩洞穴與金色大寶神像。挑戰272階彩虹台階俯瞰全景！
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950/80 text-purple-300 border border-purple-800 font-medium">重要穿著提醒：女性需過膝長裙/長褲，不可穿露肩背心</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-rose-950/80 text-rose-300 border border-rose-800 font-medium">必防範：小心階梯上頑皮獼猴，請收好塑膠袋與墨鏡手機</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Batu Caves, Gombak</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Batu+Caves" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航黑風洞
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2.2: TRX 商場冷氣午餐 + 應援準備 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="food">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">午餐充電</span>
+                <span class="text-xs font-mono text-slate-400">12:30 - 16:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">新地標商場</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">TRX 敦拉薩國際貿易中心 & 潮牌探店</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                全馬最新頂級奢華商場 The Exchange TRX，頂樓空中花園絕美，順便換裝補充足夠水分與熱量，為晚上的演唱會熱身。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">必吃美食：Madam Kwan's 關媽媽美食 / 美滋鍋 / 頂樓咖啡</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-rose-950/80 text-rose-300 border border-rose-800 font-medium">必點菜單：椰漿飯三色飯 (Nasi Lemak Special)、沙嗲牛羊拼盤</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：The Exchange TRX</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=The+Exchange+TRX" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-emerald-400 hover:bg-emerald-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航 TRX
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2.3: 重頭戲 The Weeknd 演唱會 -->
+          <div class="item-card bg-gradient-to-br from-slate-900 via-rose-950/50 to-slate-900 rounded-2xl p-4 space-y-3 border-2 border-brand-red glow-weeknd" data-cat="event">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-brand-red text-white uppercase tracking-wider">★ 主打盛事</span>
+                <span class="text-xs font-mono text-rose-300 font-bold">17:00 提早進場 | 20:30 開演</span>
+              </div>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">武吉加里爾</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white flex items-center gap-2">
+                <i class="ph-fill ph-fire text-brand-neon"></i>
+                The Weeknd 演唱會入場狂歡
+              </h3>
+              <p class="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                8萬人級別國家體育館！請務必在 <b>17:30前</b> 從市區出發。因周邊車潮極度雍塞，自駕或叫Grab容易卡死在出口。
+              </p>
+              <div class="mt-3 text-xs bg-black/60 rounded-xl p-3 border border-rose-500/30 space-y-1.5 text-slate-300">
+                <p class="text-rose-300 font-bold flex items-center gap-1">
+                  <i class="ph-bold ph-train"></i> 交通防塞秘訣 (強烈推薦)：
+                </p>
+                <p>從 Moxy 附近的 <b>Plaza Rakyat / Hang Tuah 站</b> 搭乘 <b>LRT 大城堡線 (Sri Petaling Line) 直達 Bukit Jalil 站</b>，出站有空橋直通體育場，省去1小時以上塞車！</p>
+                <p class="text-purple-300 font-medium">散場提醒：預先在手機 Touch 'n Go 或買好回程 Token，散場隨人群快步直奔 LRT 站進站回市區！</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-300">Stadium Nasional Bukit Jalil</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=National+Stadium+Bukit+Jalil" target="_blank" class="px-3 py-1.5 rounded-xl bg-brand-red text-white hover:bg-rose-700 text-xs font-bold flex items-center gap-1 shadow-lg shadow-rose-900/50">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航體育場
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DAY 3: 11/6 ================= -->
+        <div class="day-block space-y-3" data-day="day3">
+          <!-- Weather Bar for Day 3 -->
+          <div class="glassmorphism rounded-xl p-3 flex items-center justify-between border-l-4 border-emerald-400">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-emerald-400">DAY 3 • 11/06 (四)</span>
+                <span class="text-xs text-slate-300">晴朗無雲 • 適合夜景</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5">預報 28°C ~ 33°C • 適合雙子塔夜拍，酒吧著smart casual便服</p>
+            </div>
+            <i class="ph-duotone ph-sun text-2xl text-emerald-400"></i>
+          </div>
+
+          <!-- Card 3.1: 雙子塔與空中走廊 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="spot">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-400 border border-amber-800">經典地標</span>
+                <span class="text-xs font-mono text-slate-400">10:30 - 14:00</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">KLCC 核心</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">國油雙峰塔 Petronas Twin Towers & 空中天橋</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                世界最高雙棟建築！參觀 41 樓空中走廊與 86 樓觀景台俯瞰吉隆坡全景，接著在陽光廣場 Suria KLCC 享用南洋午茶。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950/80 text-purple-300 border border-purple-800 font-medium">預約代號/貼士：門票建議提早官網預購避免現場售罄</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">拍照機位：KLCC公園鯨魚水池噴泉前、或後方天橋仰拍</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Petronas Twin Towers</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Petronas+Twin+Towers" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航雙子塔
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3.2: 莎羅馬行人天橋夜景 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="spot">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-400 border border-amber-800">夜景打卡</span>
+                <span class="text-xs font-mono text-slate-400">18:30 - 20:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">LED燈光秀</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">莎羅馬行人天橋 Saloma Link Bridge 燈光秀</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                靈感源自馬來傳統「栳葉（Sirih Junjung）」的現代人行天橋，夜晚LED燈光隨著音樂變幻，可將天橋與雙子塔同框收入鏡頭。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-medium">必買伴手禮：Tapak 餐車市集或周邊香蘭糕點</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">必吃美食：Tapak Urban Street Dining 特色漢堡與果昔</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Saloma Link, Kampung Baru</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Saloma+Link+Bridge" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航莎羅馬天橋
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3.3: 茨廠街高隱密 Speakeasy 酒吧 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="food">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-400 border border-purple-800">夜生活 / 雞尾酒</span>
+                <span class="text-xs font-mono text-slate-400">21:00 - 23:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">亞洲50佳酒吧</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">秘密玩具店後門：PS150 或 Concubine KL</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                隱身在老文具玩具店後面的 Asia's 50 Best Bars 名單常客！暗紅燈光、復古南洋風，就在 Moxy 酒店步行5分鐘距離，微醺後散步回房超方便。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-rose-950/80 text-rose-300 border border-rose-800 font-medium">必點菜單：Siam Selasih 泰式羅勒特調 / Salty Chinaman</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950/80 text-purple-300 border border-purple-800 font-medium">預約提醒：建議下午致電或IG私訊預約座位</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Petaling St, Chinatown</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=PS150+Kuala+Lumpur" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-purple-400 hover:bg-purple-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航 PS150 酒吧
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DAY 4-5: 11/7-8 ================= -->
+        <div class="day-block space-y-3" data-day="day4">
+          <!-- Weather Bar for Day 4 -->
+          <div class="glassmorphism rounded-xl p-3 flex items-center justify-between border-l-4 border-sky-400">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-sky-400">DAY 4 • 11/07 (五) ~ 11/08 (六) 凌晨返程</span>
+                <span class="text-xs text-slate-300">晴午後雷陣雨</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5">預報 27°C ~ 32°C • 12:00 退房寄放行李，夜間 23:30 出發機場</p>
+            </div>
+            <i class="ph-duotone ph-airplane-takeoff text-2xl text-sky-400"></i>
+          </div>
+
+          <!-- Card 4.1: 退房與柏威年最後掃貨 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="spot">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-pink-950 text-pink-400 border border-pink-800">伴手禮掃貨</span>
+                <span class="text-xs font-mono text-slate-400">12:00 - 17:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">武吉免登商圈</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Moxy 退房行李寄存 & 柏威年 Pavilion 購物</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                退房後把行李免費寄存在 Moxy 前台。搭乘 MRT 前往 Bukit Bintang 站，來到吉隆坡最繁華的 Pavilion 商場採購馬來西亞必買特產與名品。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-medium">必買伴手禮：Beryl's 巧克力、白咖啡 (OldTown)、肉骨茶料包</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-medium">必買特產：Padini / Vincci 本地小資美鞋包包</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-orange-950/80 text-orange-300 border border-orange-800 font-medium">下午茶：東方人文茶館 或 榴槤冰淇淋泡芙</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Pavilion Bukit Bintang</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Pavilion+Kuala+Lumpur" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-pink-400 hover:bg-pink-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航柏威年
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4.2: 南洋精油 Spa 舒緩疲憊 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="food">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-950 text-teal-400 border border-teal-800">放鬆療癒</span>
+                <span class="text-xs font-mono text-slate-400">18:00 - 20:30</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">登機前解乏</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">古法南洋按摩 Spa (The Tropical Spa / Uroot)</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                演唱會狂歡雙腿痠痛的救星！安排 90 分鐘傳統熱石/香薰精油足部與全身放鬆按摩，神清氣爽迎接紅眼返程航班。
+              </p>
+              <div class="mt-2.5 flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-950/80 text-purple-300 border border-purple-800 font-medium">預約提醒：可利用 WhatsApp 或 Klook 提前預訂夜間時段</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">地點：Bukit Bintang Spa 區</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Uroot+Spa+Bukit+Bintang" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-teal-400 hover:bg-teal-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航 Spa 門店
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4.3: 深夜前往機場回程各自道別 -->
+          <div class="item-card glassmorphism rounded-2xl p-4 space-y-3 border border-slate-800" data-cat="trans">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-950 text-sky-400 border border-sky-800">返程交通</span>
+                <span class="text-xs font-mono text-slate-400">23:30 - 03:05</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-rose-300">各自登機返家</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">回 Moxy 取行李 ➡️ 叫車前往 KLIA 機場辦理登機</h3>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                約 23:30 前往吉隆坡機場 KLIA T1。兩位航班均為 11/8 凌晨出發：
+              </p>
+              <ul class="text-xs bg-slate-900/90 rounded-lg p-3 border border-slate-800 space-y-1.5 text-slate-300 mt-2">
+                <li>✈️ <b>Marina:</b> 國泰航空 CX732 (02:55 - 07:00) 轉機香港 接 CX368 (09:45 - 12:30)</li>
+                <li>✈️ <b>Rogen:</b> 深圳航空 ZH334 (03:05 - 07:20) 直飛深圳</li>
+                <li class="text-amber-400 text-[11px] pt-1">⚠️ 溫馨提示：國際航班請預留至少 2.5 - 3 小時進行行李託運與出境海關查驗。</li>
+              </ul>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-slate-400">KLIA Terminal 1</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=KLIA+Terminal+1" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-sky-400 hover:bg-sky-950 text-xs font-bold flex items-center gap-1 border border-slate-700">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航機場航廈
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: 資訊 INFO (航班/住宿/緊急) ================= -->
+      <section id="tab-info" class="tab-pane hidden px-4 py-4 space-y-4">
+
+        <!-- Hotel Section Card with Moxy Theme -->
+        <div class="rounded-2xl overflow-hidden glassmorphism border border-brand-moxy/40 shadow-xl">
+          <div class="h-32 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+            <!-- Simulated rooftop pool gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-pink-950/50 to-slate-900"></div>
+            <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-full border border-pink-500/40">
+              <span class="w-2 h-2 rounded-full bg-brand-moxy animate-ping"></span>
+              <span class="text-[11px] font-black tracking-wider text-pink-300">MOXY HOTELS • MARRIOTT</span>
+            </div>
+            <div class="absolute top-3 right-3 text-right">
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">3 NIGHTS</span>
+              <p class="text-[10px] text-slate-400 mt-0.5">Nov 4 - Nov 7</p>
+            </div>
+            <div class="relative text-center px-4">
+              <h2 class="text-xl font-black tracking-wider text-white">moxy</h2>
+              <p class="text-xs text-slate-300 font-medium">Kuala Lumpur Chinatown</p>
+            </div>
+          </div>
+
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-sm font-bold text-white">吉隆坡茨廠街莫克西酒店</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Jalan Petaling, City Centre, Kuala Lumpur</p>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Moxy+Kuala+Lumpur+Chinatown" target="_blank" class="px-2.5 py-1 rounded-lg bg-brand-moxy text-white text-xs font-bold flex items-center gap-1 shadow">
+                <i class="ph-bold ph-navigation-arrow"></i> 導航
+              </a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">入住 Check-in</span>
+                <span class="font-bold text-slate-200">11/04 (二) 15:00 起</span>
+              </div>
+              <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">退房 Check-out</span>
+                <span class="font-bold text-slate-200">11/07 (五) 12:00 前</span>
+              </div>
+            </div>
+
+            <div class="text-xs text-slate-300 bg-pink-950/20 border border-pink-900/40 p-2.5 rounded-xl space-y-1">
+              <p class="font-semibold text-pink-300 flex items-center gap-1">
+                <i class="ph-bold ph-sparkle"></i> 飯店亮點與設施
+              </p>
+              <p class="text-[11px] text-slate-300">
+                • 頂樓高空無邊際游泳池 (眺望吉隆坡塔與市景)<br>
+                • Bar Moxy 入住贈特調迎賓飲品 (Check-in 在酒吧吧檯辦理！)<br>
+                • 步行 3 分鐘抵達 Pasar Seni 地鐵站與茨廠街老街區
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flights Card Container -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <i class="ph-fill ph-airplane-tilt text-brand-neon"></i>
+              雙人航班時刻表 (分開出發)
+            </h3>
+            <span class="text-[10px] text-slate-500">已確認行程</span>
+          </div>
+
+          <!-- Rogen Flight -->
+          <div class="glassmorphism rounded-2xl p-4 border border-slate-800 relative overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-2.5">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-xs">R</div>
+                <div>
+                  <h4 class="text-xs font-black text-white">Rogen 航班 (深圳航空)</h4>
+                  <p class="text-[10px] text-slate-400">去回直飛：深圳 SZX ⇄ 吉隆坡 KUL</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-blue-950 text-blue-300 border border-blue-800 font-mono font-bold">ZH327 / ZH334</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between bg-slate-900/60 p-2 rounded-xl">
+                <div>
+                  <span class="text-[10px] text-emerald-400 font-bold">去程 11/04 (二)</span>
+                  <div class="text-slate-200 font-mono font-bold">08:15 深圳 ➔ 12:20 吉隆坡</div>
+                </div>
+                <span class="text-[10px] text-slate-400 font-mono">直飛 4h 05m</span>
+              </div>
+              <div class="flex items-center justify-between bg-slate-900/60 p-2 rounded-xl">
+                <div>
+                  <span class="text-[10px] text-sky-400 font-bold">返程 11/08 (六) 凌晨</span>
+                  <div class="text-slate-200 font-mono font-bold">03:05 吉隆坡 ➔ 07:20 深圳</div>
+                </div>
+                <span class="text-[10px] text-slate-400 font-mono">直飛 4h 15m</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marina Flight -->
+          <div class="glassmorphism rounded-2xl p-4 border border-slate-800 relative overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-2.5">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold text-xs">M</div>
+                <div>
+                  <h4 class="text-xs font-black text-white">Marina 航班 (國泰航空)</h4>
+                  <p class="text-[10px] text-slate-400">經香港 HKG 轉機 ⇄ 吉隆坡 KUL</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-800 font-mono font-bold">Cathay Pacific</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="bg-slate-900/60 p-2 rounded-xl space-y-1">
+                <span class="text-[10px] text-emerald-400 font-bold">去程 11/04 (二)</span>
+                <div class="text-slate-200 font-mono text-[11px]">
+                  • CX317: 12:50 - 15:50 (至香港 HKG)<br>
+                  • CX729: 17:30 - 21:35 (香港抵達吉隆坡 KUL)
+                </div>
+              </div>
+              <div class="bg-slate-900/60 p-2 rounded-xl space-y-1">
+                <span class="text-[10px] text-sky-400 font-bold">返程 11/08 (六) 凌晨</span>
+                <div class="text-slate-200 font-mono text-[11px]">
+                  • CX732: 02:55 - 07:00 (吉隆坡至香港)<br>
+                  • CX368: 09:45 - 12:30 (香港接駁返抵)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Contacts Section -->
+        <div class="glassmorphism rounded-2xl p-4 border border-rose-900/40 space-y-3">
+          <div class="flex items-center gap-2">
+            <i class="ph-fill ph-warning-octagon text-rose-500 text-lg"></i>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-white">緊急聯絡電話 & 求助清單</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="tel:999" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:border-rose-500/50">
+              <div>
+                <span class="text-[10px] text-slate-400 block">馬來西亞報警/救護車</span>
+                <span class="text-sm font-black text-rose-400">999</span>
+              </div>
+              <i class="ph-bold ph-phone-call text-rose-400"></i>
+            </a>
+            <a href="tel:994" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:border-rose-500/50">
+              <div>
+                <span class="text-[10px] text-slate-400 block">火警報案熱線</span>
+                <span class="text-sm font-black text-rose-400">994</span>
+              </div>
+              <i class="ph-bold ph-phone-call text-rose-400"></i>
+            </a>
+            <a href="tel:+60321647777" class="col-span-2 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-slate-400 block">中國駐馬來西亞大使館領事保護與協助</span>
+                <span class="text-xs font-mono font-bold text-slate-200">+60-32164-7777 / 12308</span>
+              </div>
+              <i class="ph-bold ph-phone text-slate-400"></i>
+            </a>
+            <a href="tel:+60321496590" class="col-span-2 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-slate-400 block">吉隆坡旅遊警察 (Tourist Police KL)</span>
+                <span class="text-xs font-mono font-bold text-slate-200">+60-32149-6590</span>
+              </div>
+              <i class="ph-bold ph-shield-check text-emerald-400"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: 記帳/預算 BUDGET ================= -->
+      <section id="tab-budget" class="tab-pane hidden px-4 py-4 space-y-4">
+
+        <!-- Budget Overview Summary Cards -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="glassmorphism rounded-2xl p-3.5 border border-slate-800">
+            <span class="text-[10px] uppercase font-bold text-slate-400">總累計支出</span>
+            <div class="text-xl font-black text-brand-neon mt-1" id="sum-total-myr">RM 0</div>
+            <p class="text-[10px] text-slate-500 mt-0.5" id="sum-total-converted">約 0 CNY / 0 TWD</p>
+          </div>
+          <div class="glassmorphism rounded-2xl p-3.5 border border-slate-800">
+            <span class="text-[10px] uppercase font-bold text-slate-400">分攤結算狀態</span>
+            <div class="text-xs font-bold text-slate-200 mt-1 leading-snug" id="split-status-text">
+              目前收支平衡
+            </div>
+            <p class="text-[10px] text-emerald-400 mt-0.5">依據記帳自動試算</p>
+          </div>
+        </div>
+
+        <!-- Add Expense Form -->
+        <div class="glassmorphism rounded-2xl p-4 border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+              <i class="ph-bold ph-plus-circle text-emerald-400"></i>
+              新增消費記帳
+            </h3>
+            <span class="text-[10px] text-slate-400">幣別：馬幣 (MYR)</span>
+          </div>
+
+          <form id="expense-form" onsubmit="addExpense(event)" class="space-y-3">
+            <div>
+              <label class="text-[11px] text-slate-400 block mb-1">消費項目 / 名稱</label>
+              <input type="text" id="exp-title" required placeholder="例：亞羅街黃亞華燒雞翼、Grab車資" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[11px] text-slate-400 block mb-1">金額 (RM)</label>
+                <input type="number" step="0.5" min="0" id="exp-amount" required placeholder="0.00" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+              </div>
+              <div>
+                <label class="text-[11px] text-slate-400 block mb-1">分類</label>
+                <select id="exp-cat" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-brand-neon">
+                  <option value="餐飲美食">餐飲美食 🍜</option>
+                  <option value="交通車資">交通車資 🚕</option>
+                  <option value="景點門票">景點門票 🎟️</option>
+                  <option value="住宿購物">住宿購物 🛍️</option>
+                  <option value="其他花費">其他花費 💳</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[11px] text-slate-400 block mb-1">誰先付的款？</label>
+              <div class="grid grid-cols-3 gap-2 text-xs">
+                <label class="cursor-pointer border border-slate-700/80 rounded-xl p-2 text-center peer-checked:border-brand-neon has-[:checked]:bg-brand-red/20 has-[:checked]:border-brand-neon">
+                  <input type="radio" name="exp-payer" value="Rogen" checked class="hidden">
+                  <span class="font-bold text-white">Rogen</span>
+                </label>
+                <label class="cursor-pointer border border-slate-700/80 rounded-xl p-2 text-center peer-checked:border-brand-neon has-[:checked]:bg-brand-red/20 has-[:checked]:border-brand-neon">
+                  <input type="radio" name="exp-payer" value="Marina" class="hidden">
+                  <span class="font-bold text-white">Marina</span>
+                </label>
+                <label class="cursor-pointer border border-slate-700/80 rounded-xl p-2 text-center peer-checked:border-brand-neon has-[:checked]:bg-brand-red/20 has-[:checked]:border-brand-neon">
+                  <input type="radio" name="exp-payer" value="AA公費" class="hidden">
+                  <span class="font-bold text-white">AA平分</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 text-white font-bold text-xs shadow-lg shadow-rose-900/40 active:scale-[0.98] transition">
+              儲存此筆記帳
+            </button>
+          </form>
+        </div>
+
+        <!-- Expense Record List -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-xs font-bold text-slate-400">記帳明細列表</span>
+            <button onclick="clearExpenses()" class="text-[11px] text-slate-500 hover:text-rose-400">清空明細</button>
+          </div>
+          <div id="expense-list-container" class="space-y-2">
+            <!-- Dynamic expense items render here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: 攻略與實用指南 GUIDE ================= -->
+      <section id="tab-guide" class="tab-pane hidden px-4 py-4 space-y-4">
+
+        <!-- Concert Tips Special -->
+        <div class="glassmorphism rounded-2xl p-4 border border-rose-500/30 space-y-2.5">
+          <div class="flex items-center gap-2 text-brand-neon">
+            <i class="ph-fill ph-ticket text-xl"></i>
+            <h3 class="text-sm font-bold text-white">The Weeknd 武吉加里爾演唱會秘笈</h3>
+          </div>
+          <div class="text-xs text-slate-300 space-y-2 leading-relaxed">
+            <p><b class="text-rose-300">1. 進場安檢：</b>國家體育館不可攜帶專業長焦鏡頭、自拍棒、大於A4尺寸之後背包、開瓶飲料及罐裝水。建議隨身小廢包 + 護照身分證件電子檔。</p>
+            <p><b class="text-rose-300">2. 網路訊號防卡：</b>體育館湧入數萬人時行動網路常癱瘓，提前截圖<b>電子門票 QR-Code</b>、同行會合地標照片（如指定某個 Gate 柱子編號），以防斷網找不到人。</p>
+            <p><b class="text-rose-300">3. 散場終極對策：</b>叫 Grab 機會微乎其微。務必直接跟著人群走專用連通道到 <b>LRT Bukit Jalil 站</b> 搭捷運回市區。</p>
+          </div>
+        </div>
+
+        <!-- Story & Local Secrets Accordions -->
+        <div class="space-y-2.5">
+          <!-- Story 1 -->
+          <div class="glassmorphism rounded-2xl p-3.5 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-amber-400">
+              <i class="ph-duotone ph-book-open-text text-lg"></i>
+              <h4 class="text-xs font-bold text-white">鬼仔巷 Kwai Chai Hong 名稱的由來？</h4>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              相傳早期下雨天常有許多華人小孩在巷弄嬉鬧玩水，長輩常喊「鬼仔」而得名；另一傳說則是此處曾是老吉隆坡私會黨幫派盤踞地，幫會成員互稱「鬼仔」。如今經活化後，紅磚、木窗框與南洋旗袍壁畫讓它成了全吉隆坡最熱門的文青打卡巷！
+            </p>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="glassmorphism rounded-2xl p-3.5 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-sky-400">
+              <i class="ph-duotone ph-compass text-lg"></i>
+              <h4 class="text-xs font-bold text-white">吉隆坡打車 (Grab) vs 大眾捷運 (LRT / MRT)</h4>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              在吉隆坡市區（尤其是尖峰時段 17:00-19:30 及午後雷陣雨時），路面交通堵塞極為嚴重。<b>若往返體育場、中央車站、雙子塔周邊，搭乘 MRT / LRT 通常比 Grab 快兩倍以上！</b>建議準備一張 Touch 'n Go 卡（超商即可購買）或直接用 Apple Pay / 信用卡感應入閘。
+            </p>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="glassmorphism rounded-2xl p-3.5 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-emerald-400">
+              <i class="ph-duotone ph-fork-knife text-lg"></i>
+              <h4 class="text-xs font-bold text-white">導遊必吃指南：黑醬油福建麵的精髓</h4>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              不同於檳城的蝦麵湯頭，吉隆坡的「福建炒麵」以濃稠黑醬油大火快炒粗黃麵，鍋氣濃郁，其真正靈魂是<b>金黃香脆的炸豬油渣 (Bak Yu Pok)</b>！老字號「金蓮記」正是誕生於茨廠街的老店，值得深夜一嚐。
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (iOS/Android Native Style) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glassmorphism border-t border-slate-800/80 max-w-md mx-auto px-3 py-2 flex justify-around items-center pb-safe">
+      <button onclick="switchTab('tab-itinerary')" class="nav-btn active flex flex-col items-center gap-1 text-brand-neon transition" data-target="tab-itinerary">
+        <i class="ph-fill ph-calendar text-xl"></i>
+        <span class="text-[10px] font-bold">每日行程</span>
+      </button>
+
+      <button onclick="switchTab('tab-info')" class="nav-btn flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition" data-target="tab-info">
+        <i class="ph-fill ph-airplane text-xl"></i>
+        <span class="text-[10px] font-bold">航班·住宿</span>
+      </button>
+
+      <button onclick="switchTab('tab-budget')" class="nav-btn flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition" data-target="tab-budget">
+        <i class="ph-fill ph-wallet text-xl"></i>
+        <span class="text-[10px] font-bold">記帳預算</span>
+      </button>
+
+      <button onclick="switchTab('tab-guide')" class="nav-btn flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition" data-target="tab-guide">
+        <i class="ph-fill ph-compass text-xl"></i>
+        <span class="text-[10px] font-bold">攻略貼士</span>
+      </button>
+    </nav>
+
+    <!-- PWA & Deploy Guide Modal -->
+    <div id="deploy-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="glassmorphism max-w-sm w-full rounded-2xl p-5 border border-slate-700 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <i class="ph-fill ph-rocket-launch text-brand-neon text-xl"></i>
+            <h3 class="text-sm font-black text-white">上傳 GitHub & 免費部署 PWA</h3>
+          </div>
+          <button onclick="closeDeployGuide()" class="text-slate-400 hover:text-white">
+            <i class="ph-bold ph-x text-lg"></i>
+          </button>
+        </div>
+
+        <div class="text-xs text-slate-300 space-y-3">
+          <p class="text-slate-300">
+            這個單檔案 HTML 已經完全整合了 PWA Manifest。你可以用以下 2 種極速方式部署為真正的手機 App：
+          </p>
+
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 space-y-1.5">
+            <span class="text-brand-neon font-bold text-xs block">方案 A: GitHub + Vercel / Netlify (推薦)</span>
+            <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px]">
+              <li>在 GitHub 新建一個儲存庫 (Repo)，例如 <code class="text-rose-300">kl-trip-2026</code>。</li>
+              <li>把這個 <code class="text-rose-300">index.html</code> 上傳上去。</li>
+              <li>登入 <a href="https://vercel.com" target="_blank" class="text-sky-400 underline">Vercel</a> 或 <a href="https://netlify.com" target="_blank" class="text-sky-400 underline">Netlify</a>，點選「Import GitHub Repo」，直接按 Deploy。</li>
+              <li>幾秒內產出專屬 HTTPS 網址！</li>
+            </ol>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 space-y-1.5">
+            <span class="text-emerald-400 font-bold text-xs block">方案 B: GitHub Pages 免費託管</span>
+            <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px]">
+              <li>上傳至 GitHub 後，進入 Repo 的 <b>Settings ➔ Pages</b>。</li>
+              <li>Build and deployment 選擇 Branch: <code class="text-emerald-300">main / root</code>。</li>
+              <li>儲存後即獲免費 <code class="text-emerald-300">https://yourname.github.io/kl-trip-2026</code> 網址。</li>
+            </ol>
+          </div>
+
+          <div class="bg-rose-950/30 p-3 rounded-xl border border-rose-900/40 text-[11px] text-slate-300">
+            <strong class="text-rose-300">📱 手機安裝 PWA 方法：</strong><br>
+            用 iPhone Safari 打開網址，按底部分享按鈕 ➔ <b>「加入主畫面」</b>；Android Chrome 則點選選單 ➔ <b>「安裝應用程式」</b>，即可像原生 App 一樣離線秒開！
+          </div>
+        </div>
+
+        <button onclick="closeDeployGuide()" class="w-full py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs hover:bg-slate-700">
+          了解，關閉視窗
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      const activePane = document.getElementById(tabId);
+      if (activePane) {
+        activePane.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-target') === tabId) {
+          btn.classList.add('text-brand-neon');
+          btn.classList.remove('text-slate-400');
+        } else {
+          btn.classList.remove('text-brand-neon');
+          btn.classList.add('text-slate-400');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Day filter logic
+    function filterDay(dayId) {
+      document.querySelectorAll('.day-chip').forEach(btn => {
+        btn.classList.remove('active', 'bg-brand-red', 'text-white');
+        btn.classList.add('bg-slate-800/80', 'text-slate-300');
+      });
+      event.target.classList.add('active', 'bg-brand-red', 'text-white');
+      event.target.classList.remove('bg-slate-800/80', 'text-slate-300');
+
+      const blocks = document.querySelectorAll('.day-block');
+      blocks.forEach(block => {
+        if (dayId === 'all' || block.getAttribute('data-day') === dayId) {
+          block.style.display = 'block';
+        } else {
+          block.style.display = 'none';
+        }
+      });
+    }
+
+    // Category filter logic
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-chip').forEach(btn => {
+        btn.classList.remove('active', 'bg-slate-800', 'text-white');
+        btn.classList.add('bg-slate-900', 'text-slate-400');
+      });
+      event.target.classList.add('active', 'bg-slate-800', 'text-white');
+      event.target.classList.remove('bg-slate-900', 'text-slate-400');
+
+      const cards = document.querySelectorAll('.item-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal controllers
+    function openDeployGuide() {
+      const modal = document.getElementById('deploy-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeDeployGuide() {
+      const modal = document.getElementById('deploy-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // ================= Expense Tracker State & Logic =================
+    // LocalStorage key
+    const STORAGE_KEY = 'kl_2026_expenses_v1';
+
+    // Initial seed mock data for convenient immediate review
+    const initialExpenses = [
+      { id: 1, title: 'Moxy Kuala Lumpur Chinatown (3晚房費)', amount: 1420, cat: '住宿購物', payer: 'Rogen', date: '11/04' },
+      { id: 2, title: 'The Weeknd 門票 x2', amount: 1980, cat: '景點門票', payer: 'Marina', date: '11/05' },
+      { id: 3, title: 'KLIA 到酒店 Grab 車費 + Toll', amount: 75, cat: '交通車資', payer: 'Rogen', date: '11/04' },
+      { id: 4, title: '茨廠街金蓮記福建麵宵夜', amount: 88, cat: '餐飲美食', payer: 'AA公費', date: '11/04' }
+    ];
+
+    function getExpenses() {
+      const data = localStorage.getItem(STORAGE_KEY);
+      if (!data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(initialExpenses));
+        return initialExpenses;
+      }
+      try {
+        return JSON.parse(data);
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function saveExpenses(list) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      renderExpenses();
+    }
+
+    function addExpense(e) {
+      e.preventDefault();
+      const title = document.getElementById('exp-title').value.trim();
+      const amount = parseFloat(document.getElementById('exp-amount').value);
+      const cat = document.getElementById('exp-cat').value;
+      const payer = document.querySelector('input[name="exp-payer"]:checked').value;
+
+      if (!title || isNaN(amount) || amount <= 0) return;
+
+      const currentList = getExpenses();
+      const newEntry = {
+        id: Date.now(),
+        title,
+        amount,
+        cat,
+        payer,
+        date: new Date().toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' })
+      };
+
+      currentList.unshift(newEntry);
+      saveExpenses(currentList);
+
+      // Reset form
+      document.getElementById('exp-title').value = '';
+      document.getElementById('exp-amount').value = '';
+    }
+
+    function deleteExpense(id) {
+      let currentList = getExpenses();
+      currentList = currentList.filter(item => item.id !== id);
+      saveExpenses(currentList);
+    }
+
+    function clearExpenses() {
+      if (localStorage.getItem(STORAGE_KEY)) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderExpenses();
+      }
+    }
+
+    function renderExpenses() {
+      const list = getExpenses();
+      const container = document.getElementById('expense-list-container');
+      const totalEl = document.getElementById('sum-total-myr');
+      const convertedEl = document.getElementById('sum-total-converted');
+      const splitStatusEl = document.getElementById('split-status-text');
+
+      let totalMYR = 0;
+      let rogenPaid = 0;
+      let marinaPaid = 0;
+
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="glassmorphism p-6 rounded-2xl text-center text-slate-500 text-xs">
+            尚無記帳紀錄，趕緊新增一筆吧！
+          </div>
+        `;
+      } else {
+        list.forEach(item => {
+          totalMYR += item.amount;
+          if (item.payer === 'Rogen') rogenPaid += item.amount;
+          if (item.payer === 'Marina') marinaPaid += item.amount;
+          if (item.payer === 'AA公費') {
+            rogenPaid += item.amount / 2;
+            marinaPaid += item.amount / 2;
+          }
+
+          const card = document.createElement('div');
+          card.className = 'glassmorphism rounded-xl p-3 flex items-center justify-between border border-slate-800 text-xs';
+          card.innerHTML = `
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-sm border border-slate-700/60 font-medium">
+                ${item.payer === 'Rogen' ? '👨🏻' : (item.payer === 'Marina' ? '👩🏻' : '🤝')}
+              </span>
+              <div>
+                <h4 class="font-bold text-white text-xs leading-snug">${item.title}</h4>
+                <div class="flex items-center gap-1.5 text-[10px] text-slate-400 mt-0.5">
+                  <span class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">${item.cat}</span>
+                  <span>•</span>
+                  <span>由 ${item.payer} 支付</span>
+                  <span>•</span>
+                  <span>${item.date}</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-right">
+              <div>
+                <div class="font-mono font-bold text-rose-400">RM ${item.amount.toFixed(1)}</div>
+                <div class="text-[9px] text-slate-500">≈ ¥${(item.amount * 1.6).toFixed(0)}</div>
+              </div>
+              <button onclick="deleteExpense(${item.id})" class="text-slate-500 hover:text-rose-400 p-1">
+                <i class="ph-bold ph-trash"></i>
+              </button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      // Update Summary metrics (Approx 1 MYR ≈ 1.6 CNY / 7.2 TWD)
+      totalEl.textContent = `RM ${totalMYR.toLocaleString('en-US', { minimumFractionDigits: 1 })}`;
+      convertedEl.textContent = `約 ¥${(totalMYR * 1.6).toFixed(0)} CNY / NT$${(totalMYR * 7.2).toFixed(0)} TWD`;
+
+      // Split status calculations
+      const diff = (rogenPaid - marinaPaid) / 2;
+      if (Math.abs(diff) < 1) {
+        splitStatusEl.innerHTML = `<span class="text-emerald-400">目前收支平衡！</span>`;
+      } else if (diff > 0) {
+        splitStatusEl.innerHTML = `Marina 需給 Rogen <span class="text-rose-400 font-mono font-bold">RM ${diff.toFixed(1)}</span> (約¥${(diff * 1.6).toFixed(0)})`;
+      } else {
+        splitStatusEl.innerHTML = `Rogen 需給 Marina <span class="text-rose-400 font-mono font-bold">RM ${Math.abs(diff).toFixed(1)}</span> (約¥${(Math.abs(diff) * 1.6).toFixed(0)})`;
+      }
+    }
+
+    // Initialize state on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderExpenses();
+    });
+  </script>
+</body>
+</html>
