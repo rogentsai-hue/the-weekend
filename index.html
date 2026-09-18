@@ -10,7 +10,6 @@
   
   <!-- FontAwesome & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -573,27 +572,27 @@
 
   <!-- VIEW 1: ITINERARY -->
   <main id="view-itinerary" class="view-content active">
-    <!-- Day Navigation -->
+    <!-- Day Navigation (已校正為三四五六日) -->
     <div class="day-slider">
       <div class="day-btn active" onclick="switchDay('d1', this)">
         <span>DAY 1</span>
-        <span class="d-date">11/04 (二)</span>
+        <span class="d-date">11/04 (三)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d2', this)">
         <span>DAY 2</span>
-        <span class="d-date">11/05 (三)</span>
+        <span class="d-date">11/05 (四)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d3', this)">
         <span>DAY 3</span>
-        <span class="d-date">11/06 (四)</span>
+        <span class="d-date">11/06 (五)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d4', this)">
         <span>DAY 4</span>
-        <span class="d-date">11/07 (五)</span>
+        <span class="d-date">11/07 (六)</span>
       </div>
       <div class="day-btn" onclick="switchDay('d5', this)">
         <span>DAY 5</span>
-        <span class="d-date">11/08 (六)</span>
+        <span class="d-date">11/08 (日)</span>
       </div>
     </div>
 
@@ -616,7 +615,7 @@
       </div>
     </div>
 
-    <!-- Day 1 Container -->
+    <!-- Day 1 Container: 11/04 (三) -->
     <div id="day-d1" class="day-container">
       <div class="weather-card">
         <div class="w-left">
@@ -636,7 +635,7 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 12:20 到達</span>
         </div>
         <div class="card-title">Rogen 抵達吉隆坡機場 (KUL T1)</div>
-        <div class="card-story">搭乘深圳航空 ZH327 降落。出關後先辦理 eSIM 或領 Grab 叫車。前往吉隆坡唐人街 Moxy 飯店 Check-in。</div>
+        <div class="card-story">搭乘深圳航空 ZH327 降落。出關後先辦理 eSIM 或叫 Grab。前往吉隆坡唐人街 Moxy 飯店辦理入住手續。</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-ticket"></i> 深航 ZH327 (08:15-12:20)</span>
           <span class="hl-badge hl-tip"><i class="fa-solid fa-car"></i> 機場叫 Grab 到飯店約 65~75 MYR</span>
@@ -653,7 +652,7 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 14:30 辦理</span>
         </div>
         <div class="card-title">Moxy Kuala Lumpur Chinatown 入住</div>
-        <div class="card-story">萬豪旗下超潮設計飯店，鄰近茨廠街，頂樓有高空無邊際泳池及天際線景觀調酒吧。</div>
+        <div class="card-story">萬豪旗下年輕潮牌飯店，鄰近茨廠街，頂樓有無邊際高空泳池及城市夜景調酒吧。</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-key"></i> 預約: 3晚 (Nov 4-7)</span>
           <span class="hl-badge hl-tip"><i class="fa-solid fa-martini-glass"></i> Check-in 贈迎賓調酒特飲</span>
@@ -670,7 +669,7 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 21:35 到達</span>
         </div>
         <div class="card-title">Marina 抵達會合 (國泰 CX729)</div>
-        <div class="card-story">Marina 經香港轉機後降落。建議搭 Grab 或 KLIA Ekspres 快捷機場快線到市區與 Rogen 飯店碰頭。</div>
+        <div class="card-story">Marina 經香港轉機後降落。搭 Grab 或 KLIA Ekspres 機場快線前往市區 Moxy 飯店與 Rogen 碰頭。</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 國泰 CX317 轉 CX729 (21:35抵達)</span>
           <span class="hl-badge hl-food"><i class="fa-solid fa-utensils"></i> 留好肚子準備直奔深夜夜市</span>
@@ -700,7 +699,7 @@
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 2 Container -->
+    <!-- Day 2 Container: 11/05 (四) -->
     <div id="day-d2" class="day-container" style="display: none;">
       <div class="weather-card">
         <div class="w-left">
@@ -767,7 +766,7 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 16:00</span>
         </div>
         <div class="card-title">TRX 敦拉薩國際貿易中心 & 雙子塔景觀</div>
-        <div class="card-story">吉隆坡2024最新頂級商場The Exchange TRX，傍晚前往雙子塔 (KLCC) 公園欣賞亮燈夜景。</div>
+        <div class="card-story">吉隆坡全新頂級商場The Exchange TRX，傍晚前往雙子塔 (KLCC) 公園欣賞亮燈夜景。</div>
         <div class="highlights">
           <span class="hl-badge hl-gift"><i class="fa-solid fa-bag-shopping"></i> 伴手禮: Beryl's 頂級黑巧克力</span>
           <span class="hl-badge hl-gift"><i class="fa-solid fa-cookie-bite"></i> 必買: 怡保白咖啡袋裝、香餅</span>
@@ -780,7 +779,7 @@
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 3 Container (Concert Day) -->
+    <!-- Day 3 Container: 11/06 (五) (Concert Day) -->
     <div id="day-d3" class="day-container" style="display: none;">
       <div class="weather-card" style="border-color: rgba(255, 42, 109, 0.4);">
         <div class="w-left">
@@ -848,7 +847,7 @@
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 4 Container -->
+    <!-- Day 4 Container: 11/07 (六) -->
     <div id="day-d4" class="day-container" style="display: none;">
       <div class="weather-card">
         <div class="w-left">
@@ -898,7 +897,7 @@
           <span class="card-time"><i class="fa-regular fa-clock"></i> 20:00 - 23:30</span>
         </div>
         <div class="card-title">Moxy 泳池放鬆 & 前往機場</div>
-        <div class="card-story">回飯店整理滿滿行李戰利品。因為是8號凌晨兩三點的航班，建議晚上23:30提早抵達吉隆坡機場辦理登機出境手續。</div>
+        <div class="card-story">回飯店整理滿滿行李戰利品。因為是8號(週日)凌晨兩三點的航班，建議週六晚上23:30提早抵達吉隆坡機場辦理登機出境手續。</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-clock"></i> 建議提前 3.5 小時抵達機場</span>
         </div>
@@ -910,14 +909,14 @@
       <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
-    <!-- Day 5 Container (Departure) -->
+    <!-- Day 5 Container: 11/08 (日) (Departure) -->
     <div id="day-d5" class="day-container" style="display: none;">
       <div class="weather-card">
         <div class="w-left">
           <i class="fa-solid fa-plane-departure w-icon" style="color: var(--accent-cyan);"></i>
           <div>
             <div class="w-temp">平安返程</div>
-            <div class="w-desc">11/08 凌晨依依不捨告別大馬</div>
+            <div class="w-desc">11/08 (日) 凌晨依依不捨告別大馬</div>
           </div>
         </div>
         <div class="w-badge"><i class="fa-solid fa-heart"></i> 回憶滿載</div>
@@ -976,7 +975,7 @@
     <div class="info-card">
       <div class="flight-pill">
         <div class="flight-header">
-          <span>去程 • 11/04 (二)</span>
+          <span>去程 • 11/04 (三)</span>
           <span>深圳航空 ZH327</span>
         </div>
         <div class="flight-route">
@@ -989,7 +988,7 @@
 
       <div class="flight-pill" style="margin-top: 10px;">
         <div class="flight-header">
-          <span>回程 • 11/08 (六)</span>
+          <span>回程 • 11/08 (日)</span>
           <span>深圳航空 ZH334</span>
         </div>
         <div class="flight-route">
@@ -1005,7 +1004,7 @@
     <div class="info-card">
       <div class="flight-pill">
         <div class="flight-header">
-          <span>去程 • 11/04 (二)</span>
+          <span>去程 • 11/04 (三)</span>
           <span>國泰航空 CX317 + CX729</span>
         </div>
         <div class="flight-route">
@@ -1020,7 +1019,7 @@
 
       <div class="flight-pill" style="margin-top: 10px;">
         <div class="flight-header">
-          <span>回程 • 11/08 (六)</span>
+          <span>回程 • 11/08 (日)</span>
           <span>國泰航空 CX732 + CX368</span>
         </div>
         <div class="flight-route">
@@ -1030,7 +1029,7 @@
           <i class="fa-solid fa-angle-right" style="color: var(--text-muted);"></i>
           <span>PVG 上海浦東</span>
         </div>
-        <div class="flight-time">02:55-07:00 抵達香港轉機 (09:45起飛) ➔ 12:30 抵達上海</div>
+        <div class="flight-time">02:55-07:00 抵達香港轉機 (09:45起送) ➔ 12:30 抵達上海</div>
       </div>
     </div>
   </section>
@@ -1150,11 +1149,11 @@
       const targetDay = document.getElementById('day-' + dayKey);
       targetDay.style.display = 'block';
 
-      // 切換日期時重新應用目前的分類過濾
+      // 切換日期時重新套用分類過濾
       applyFilterToContainer(targetDay, currentCategory);
     }
 
-    // Category Filtering Logic (修復點：精準綁定 data-category)
+    // Category Filtering Logic
     function filterCategory(category, el) {
       currentCategory = category;
       document.querySelectorAll('.category-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
