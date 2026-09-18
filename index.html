@@ -94,7 +94,7 @@
       gap: 12px;
     }
 
-    /* Tab Switcher */
+    /* Main View Wrapper */
     .view-content {
       display: none;
       padding: 16px 16px 30px;
@@ -110,12 +110,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Day Sub-Nav */
+    /* Day Slider */
     .day-slider {
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding: 4px 0 16px;
+      padding: 4px 0 12px;
       scrollbar-width: none;
     }
     .day-slider::-webkit-scrollbar { display: none; }
@@ -144,6 +144,38 @@
       border-color: var(--primary);
       color: #fff;
       box-shadow: 0 4px 15px rgba(255, 42, 109, 0.3);
+    }
+
+    /* Category Filter Bar */
+    .category-filter-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 0 0 14px;
+      margin-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .category-filter-bar::-webkit-scrollbar { display: none; }
+    .filter-chip {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .filter-chip.active {
+      background: #fff;
+      color: #0d0f17;
+      border-color: #fff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
     }
 
     /* Weather Widget */
@@ -188,7 +220,7 @@
       gap: 5px;
     }
 
-    /* Cards */
+    /* Itinerary Cards */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -198,6 +230,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, opacity 0.2s;
     }
     .card::before {
       content: '';
@@ -207,10 +240,10 @@
       width: 4px;
       height: 100%;
     }
-    .card.spot::before { background: var(--accent-cyan); }
-    .card.food::before { background: var(--accent-gold); }
-    .card.transport::before { background: #3a86ff; }
-    .card.concert::before { background: var(--primary); }
+    .card[data-category="spot"]::before { background: var(--accent-cyan); }
+    .card[data-category="food"]::before { background: var(--accent-gold); }
+    .card[data-category="transport"]::before { background: #3a86ff; }
+    .card[data-category="concert"]::before { background: var(--primary); }
 
     .card-meta {
       display: flex;
@@ -226,10 +259,10 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .card.spot .card-type-tag { background: rgba(5, 217, 232, 0.15); color: var(--accent-cyan); }
-    .card.food .card-type-tag { background: rgba(255, 184, 0, 0.15); color: var(--accent-gold); }
-    .card.transport .card-type-tag { background: rgba(58, 134, 255, 0.15); color: #3a86ff; }
-    .card.concert .card-type-tag { background: rgba(255, 42, 109, 0.2); color: var(--primary); }
+    .card[data-category="spot"] .card-type-tag { background: rgba(5, 217, 232, 0.15); color: var(--accent-cyan); }
+    .card[data-category="food"] .card-type-tag { background: rgba(255, 184, 0, 0.15); color: var(--accent-gold); }
+    .card[data-category="transport"] .card-type-tag { background: rgba(58, 134, 255, 0.15); color: #3a86ff; }
+    .card[data-category="concert"] .card-type-tag { background: rgba(255, 42, 109, 0.2); color: var(--primary); }
 
     .card-time {
       font-size: 12px;
@@ -294,6 +327,14 @@
       background: var(--primary);
       border-color: var(--primary);
       transform: scale(0.98);
+    }
+
+    .no-match-msg {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      display: none;
     }
 
     /* Section Cards */
@@ -556,6 +597,25 @@
       </div>
     </div>
 
+    <!-- Category Filter Bar -->
+    <div class="category-filter-bar">
+      <div class="filter-chip active" onclick="filterCategory('all', this)">
+        <i class="fa-solid fa-layer-group"></i> 全部項目
+      </div>
+      <div class="filter-chip" onclick="filterCategory('spot', this)">
+        <i class="fa-solid fa-mountain-sun" style="color: var(--accent-cyan);"></i> 景點住宿
+      </div>
+      <div class="filter-chip" onclick="filterCategory('food', this)">
+        <i class="fa-solid fa-utensils" style="color: var(--accent-gold);"></i> 美食餐廳
+      </div>
+      <div class="filter-chip" onclick="filterCategory('transport', this)">
+        <i class="fa-solid fa-plane-arrival" style="color: #3a86ff;"></i> 交通出行
+      </div>
+      <div class="filter-chip" onclick="filterCategory('concert', this)">
+        <i class="fa-solid fa-music" style="color: var(--primary);"></i> 演唱會
+      </div>
+    </div>
+
     <!-- Day 1 Container -->
     <div id="day-d1" class="day-container">
       <div class="weather-card">
@@ -570,7 +630,7 @@
       </div>
 
       <!-- Card: Flight Rogen -->
-      <div class="card transport">
+      <div class="card" data-category="transport">
         <div class="card-meta">
           <span class="card-type-tag">交通抵達</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 12:20 到達</span>
@@ -587,7 +647,7 @@
       </div>
 
       <!-- Card: Hotel Check-in -->
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">飯店住宿</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 14:30 辦理</span>
@@ -604,7 +664,7 @@
       </div>
 
       <!-- Card: Marina Flight -->
-      <div class="card transport">
+      <div class="card" data-category="transport">
         <div class="card-meta">
           <span class="card-type-tag">雙人會合</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 21:35 到達</span>
@@ -621,7 +681,7 @@
       </div>
 
       <!-- Card: Night Market -->
-      <div class="card food">
+      <div class="card" data-category="food">
         <div class="card-meta">
           <span class="card-type-tag">宵夜美食</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 23:00 宵夜</span>
@@ -636,6 +696,8 @@
           <i class="fa-solid fa-location-arrow"></i> 導航至 亞羅街美食街
         </a>
       </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
     <!-- Day 2 Container -->
@@ -651,7 +713,7 @@
         <div class="w-badge"><i class="fa-solid fa-sun"></i> 注意防曬補水</div>
       </div>
 
-      <div class="card food">
+      <div class="card" data-category="food">
         <div class="card-meta">
           <span class="card-type-tag">南洋早餐</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 09:00</span>
@@ -667,7 +729,7 @@
         </a>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">文化名勝</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 10:30</span>
@@ -683,12 +745,12 @@
         </a>
       </div>
 
-      <div class="card food">
+      <div class="card" data-category="food">
         <div class="card-meta">
           <span class="card-type-tag">米其林必比登</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 13:00 午餐</span>
         </div>
-        <div class="card-title">海豐肉骨茶 或 新峰肉骨茶</div>
+        <div class="card-title">新峰肉骨茶 (Sun Hong Muk Koot Tea)</div>
         <div class="card-story">馬來西亞代表性傳統藥膳排骨，深褐色的當歸香濃湯頭配上炸油條泡著吃，暖胃又補充體力。</div>
         <div class="highlights">
           <span class="hl-badge hl-food"><i class="fa-solid fa-bowl-food"></i> 必吃美食: 濃郁瓦煲排骨肉骨茶</span>
@@ -699,7 +761,7 @@
         </a>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">地標購物</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 16:00</span>
@@ -714,6 +776,8 @@
           <i class="fa-solid fa-location-arrow"></i> 導航至 The Exchange TRX
         </a>
       </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
     <!-- Day 3 Container (Concert Day) -->
@@ -731,7 +795,7 @@
         </div>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">文青漫步</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 11:30</span>
@@ -748,7 +812,7 @@
       </div>
 
       <!-- MAIN EVENT: CONCERT -->
-      <div class="card concert">
+      <div class="card" data-category="concert">
         <div class="card-meta">
           <span class="card-type-tag">重頭戲 • 演唱會</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 17:00 出發入場</span>
@@ -765,7 +829,7 @@
         </a>
       </div>
 
-      <div class="card food">
+      <div class="card" data-category="food">
         <div class="card-meta">
           <span class="card-type-tag">慶功調酒</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 23:30 散場後</span>
@@ -780,6 +844,8 @@
           <i class="fa-solid fa-location-arrow"></i> 導航至 PS150 酒吧
         </a>
       </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
     <!-- Day 4 Container -->
@@ -795,7 +861,7 @@
         <div class="w-badge"><i class="fa-solid fa-bag-shopping"></i> 瘋狂採購日</div>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">文化巡禮</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 10:30</span>
@@ -810,13 +876,13 @@
         </a>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="spot">
         <div class="card-meta">
           <span class="card-type-tag">伴手禮採買</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 14:00</span>
         </div>
         <div class="card-title">中央藝術坊 (Central Market) & 柏威年商場 (Pavilion)</div>
-        <div class="card-story">在 Central Market 挖寶傳統手工蠟染巴迪(Batik)，接著轉移到 Pavilion 採購馬來西亞必買精品與本土國民鞋小 CK (Charles & Keith)。</div>
+        <div class="card-story">在 Central Market 挖寶傳統手工蠟染巴迪(Batik)，接著轉移到 Pavilion 採購馬來西亞必買精品與本土國民鞋小 CK。</div>
         <div class="highlights">
           <span class="hl-badge hl-gift"><i class="fa-solid fa-basket-shopping"></i> 必買伴手禮: 白咖哩泡麵、美祿原味威化餅</span>
           <span class="hl-badge hl-gift"><i class="fa-solid fa-shoe-prints"></i> 購物: 小CK鞋包在吉隆坡買最划算</span>
@@ -826,13 +892,13 @@
         </a>
       </div>
 
-      <div class="card spot">
+      <div class="card" data-category="transport">
         <div class="card-meta">
           <span class="card-type-tag">退房與放鬆</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 20:00 - 23:30</span>
         </div>
-        <div class="card-title">Moxy 泳池放鬆 & 前往機場快線</div>
-        <div class="card-story">回飯店整理滿滿行李戰利品。因為是8號凌晨兩三點的航班，建議晚上23:30提早抵達吉隆坡機場辦理登機出境退稅手續。</div>
+        <div class="card-title">Moxy 泳池放鬆 & 前往機場</div>
+        <div class="card-story">回飯店整理滿滿行李戰利品。因為是8號凌晨兩三點的航班，建議晚上23:30提早抵達吉隆坡機場辦理登機出境手續。</div>
         <div class="highlights">
           <span class="hl-badge hl-tip"><i class="fa-solid fa-clock"></i> 建議提前 3.5 小時抵達機場</span>
         </div>
@@ -840,6 +906,8 @@
           <i class="fa-solid fa-location-arrow"></i> 導航至 KLIA 第一航廈
         </a>
       </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
 
     <!-- Day 5 Container (Departure) -->
@@ -855,7 +923,7 @@
         <div class="w-badge"><i class="fa-solid fa-heart"></i> 回憶滿載</div>
       </div>
 
-      <div class="card transport">
+      <div class="card" data-category="transport">
         <div class="card-meta">
           <span class="card-type-tag">返程航班</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 02:55 起飛</span>
@@ -867,7 +935,7 @@
         </div>
       </div>
 
-      <div class="card transport">
+      <div class="card" data-category="transport">
         <div class="card-meta">
           <span class="card-type-tag">返程航班</span>
           <span class="card-time"><i class="fa-regular fa-clock"></i> 03:05 起飛</span>
@@ -878,6 +946,8 @@
           <span class="hl-badge hl-tip"><i class="fa-solid fa-plane"></i> 航程: KUL ➔ SZX 直飛順利回家</span>
         </div>
       </div>
+
+      <div class="no-match-msg"><i class="fa-regular fa-folder-open"></i> 此日暫無該分類的行程</div>
     </div>
   </main>
 
@@ -1070,12 +1140,50 @@
     }
 
     // Itinerary Day Switching
+    let currentCategory = 'all';
+
     function switchDay(dayKey, el) {
-      document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.day-slider .day-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.day-container').forEach(c => c.style.display = 'none');
       
       el.classList.add('active');
-      document.getElementById('day-' + dayKey).style.display = 'block';
+      const targetDay = document.getElementById('day-' + dayKey);
+      targetDay.style.display = 'block';
+
+      // 切換日期時重新應用目前的分類過濾
+      applyFilterToContainer(targetDay, currentCategory);
+    }
+
+    // Category Filtering Logic (修復點：精準綁定 data-category)
+    function filterCategory(category, el) {
+      currentCategory = category;
+      document.querySelectorAll('.category-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+
+      const visibleDayContainer = document.querySelector('.day-container[style*="display: block"], .day-container:not([style*="display: none"])');
+      if (visibleDayContainer) {
+        applyFilterToContainer(visibleDayContainer, category);
+      }
+    }
+
+    function applyFilterToContainer(container, category) {
+      const cards = container.querySelectorAll('.card');
+      let matchCount = 0;
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'block';
+          matchCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const msg = container.querySelector('.no-match-msg');
+      if (msg) {
+        msg.style.display = (matchCount === 0) ? 'block' : 'none';
+      }
     }
 
     // Default Demo Data
@@ -1086,7 +1194,6 @@
     ];
 
     // Expense Logic (localStorage)
-    // 關鍵修復：只有在從未設定過 key 時才塞入預設資料；如果是使用者清空的空陣列 [] 則嚴格保持清空狀態
     let expenses = [];
     const savedData = localStorage.getItem('kl_expenses_v2');
     if (savedData === null) {
@@ -1141,7 +1248,6 @@
       // Update Summary
       document.getElementById('total-myr').innerText = `RM ${total.toFixed(2)}`;
       
-      // Approx conversions (1 MYR = 1.6 CNY = 7.2 TWD)
       const cny = (total * 1.6).toFixed(0);
       const twd = (total * 7.2).toFixed(0);
       document.getElementById('total-cny-twd').innerText = `約 CNY ¥${cny} • TWD NT$${twd}`;
@@ -1194,7 +1300,6 @@
       renderExpenses();
     }
 
-    // 徹底清空，不再自動還原
     function clearExpenses() {
       if (confirm('確定要完全清空所有記帳記錄嗎？清空後金額將歸零。')) {
         expenses = [];
@@ -1203,7 +1308,6 @@
       }
     }
 
-    // 重新載入預設資料
     function resetDefaultExpenses() {
       if (confirm('確定要載入預設的範例記帳資料嗎？')) {
         expenses = [...defaultExpenses];
